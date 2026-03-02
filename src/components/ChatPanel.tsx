@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Nudge } from './Nudge';
 import './ChatPanel.css';
 
 interface Message { role: 'user' | 'bot'; text: string; suggestions?: string[]; }
@@ -50,8 +51,10 @@ export function ChatPanel({ reportMode = false }: { reportMode?: boolean }) {
             <p className="chat-panel__welcome-text">
               Hello. I'm your EVO AI assistant. I can help you with AI governance, security analysis, policy compliance and more. What would you like to know?
             </p>
-            <button className="chat-panel__suggestion"><SparklesIcon /> Help me analyze my scans</button>
-            <button className="chat-panel__suggestion"><SparklesIcon /> Scan all my repos</button>
+            <div className="chat-panel__nudges">
+              <Nudge label="Help me analyze my scans" onClick={() => setInput('Help me analyze my scans')} />
+              <Nudge label="Scan all my repos" onClick={() => setInput('Scan all my repos')} />
+            </div>
           </div>
         ) : (
           <div className="chat-panel__messages">

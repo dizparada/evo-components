@@ -5,6 +5,7 @@ import { Inventory } from './pages/Inventory';
 import { RepositoryDetails } from './pages/RepositoryDetails';
 import { AssetDetails } from './pages/AssetDetails';
 import { Policies } from './pages/Policies';
+import { CreatePolicy } from './pages/CreatePolicy';
 import { IssueDetails } from './pages/IssueDetails';
 import { ScansJobs } from './pages/ScansJobs';
 import { Reports } from './pages/Reports';
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="inventory/:repoId" element={<RepositoryDetails />} />
           <Route path="inventory/:repoId/:assetId" element={<AssetDetails />} />
           <Route path="policies" element={<Policies />} />
+          <Route path="policies/create" element={<CreatePolicy />} />
           <Route path="policies/issues/:issueId" element={<IssueDetails />} />
           <Route path="scans" element={<ScansJobs />} />
           <Route path="reports" element={<Reports />} />

@@ -49,6 +49,13 @@
 
 .chat-panel__welcome {}
 
+.chat-panel__nudges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
 .chat-panel__welcome-text {
   font-size: 13px;
   color: var(--color-fg-secondary);

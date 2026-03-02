@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Badge, severityVariant } from '../components/Badge';
 import { policies, policyIssues } from '../data/mockData';
 import './Policies.css';
@@ -12,6 +12,7 @@ const issueSummary = [
 ];
 
 export function Policies() {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<'policies' | 'issues'>('policies');
   const [search, setSearch] = useState('');
 
@@ -53,7 +54,7 @@ export function Policies() {
           </button>
         </div>
         {activeTab === 'policies' && (
-          <button className="policies__create-btn">Create policy</button>
+          <button className="policies__create-btn" onClick={() => navigate('/policies/create')}>Create policy</button>
         )}
       </div>
 
