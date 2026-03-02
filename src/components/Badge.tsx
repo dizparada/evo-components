@@ -11,7 +11,6 @@ interface BadgeProps {
 export function Badge({ variant, label, size = 'md' }: BadgeProps) {
   return (
     <span className={`badge badge--${variant} badge--${size}`}>
-      {variant === 'running' && <span className="badge__dot" />}
       {label}
     </span>
   );
