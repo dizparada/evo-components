@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import './StatCards.css';
 
 export interface StatCardItem {
-  icon: ReactNode;
+  icon?: ReactNode;
   label: string;
   count: number;
   delta?: number;
@@ -15,7 +15,7 @@ export function StatCards({ items }: { items: StatCardItem[] }) {
       {items.map(item => (
         <div key={item.label} className="stat-card">
           <div className="stat-card__header">
-            <span className="stat-card__icon">{item.icon}</span>
+            {item.icon && <span className="stat-card__icon">{item.icon}</span>}
             <span className="stat-card__label">{item.label}</span>
           </div>
           <div className="stat-card__body">

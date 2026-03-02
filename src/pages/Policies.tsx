@@ -6,10 +6,10 @@ import { policies, policyIssues } from '../data/mockData';
 import './Policies.css';
 
 const issueSummary = [
-  { label: 'Critical issues', count: 1, new: 1,  variant: 'critical' as const },
-  { label: 'High issues',     count: 2, new: 2,  variant: 'high'     as const },
-  { label: 'Medium issues',   count: 1, new: 0,  variant: 'medium'   as const },
-  { label: 'Low issues',      count: 1, new: 1,  variant: 'low'      as const },
+  { label: 'Critical issues', count: 1, new: 1 },
+  { label: 'High issues',     count: 2, new: 2 },
+  { label: 'Medium issues',   count: 1, new: 0 },
+  { label: 'Low issues',      count: 1, new: 1 },
 ];
 
 export function Policies() {
@@ -29,11 +29,9 @@ export function Policies() {
   return (
     <div className="policies">
       <StatCards items={issueSummary.map(s => ({
-        icon: <SeverityIcon variant={s.variant} />,
         label: s.label,
         count: s.count,
         delta: s.new,
-        variant: s.variant,
       }))} />
 
       <div className="policies__tabs-row">
@@ -134,12 +132,6 @@ export function Policies() {
   );
 }
 
-function SeverityIcon({ variant }: { variant: 'critical' | 'high' | 'medium' | 'low' }) {
-  if (variant === 'critical') return <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3"><circle cx="8" cy="8" r="6"/><path d="M8 5v3M8 11.5h.01"/></svg>;
-  if (variant === 'high')     return <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3"><path d="M8 2.5l5.5 10H2.5L8 2.5z"/><path d="M8 7v2.5M8 11.5h.01"/></svg>;
-  if (variant === 'medium')   return <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3"><circle cx="8" cy="8" r="6"/><path d="M5 8h6"/></svg>;
-  return                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3"><circle cx="8" cy="8" r="6"/><path d="M8 7.5v3M8 5h.01"/></svg>;
-}
 
 function SearchIcon() {
   return <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="5.5" cy="5.5" r="4"/><path d="M9 9l2.5 2.5"/></svg>;
