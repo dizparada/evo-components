@@ -113,8 +113,8 @@ function AssetsByType({ byType }: { byType: ByType }) {
   return (
     <div className="assets-by-type">
       {types.map(({ key, icon }) => (
-        <span key={key} className="assets-by-type__group">
-          <span className={`assets-by-type__count ${byType[key] === 0 ? 'assets-by-type__count--zero' : ''}`}>{byType[key]}</span>
+        <span key={key} className={`assets-by-type__card ${byType[key] === 0 ? 'assets-by-type__card--zero' : ''}`}>
+          <span className="assets-by-type__count">{byType[key]}</span>
           <span className="assets-by-type__icon">{icon}</span>
         </span>
       ))}
