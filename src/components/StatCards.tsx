@@ -9,11 +9,11 @@ export interface StatCardItem {
   variant?: 'critical' | 'high' | 'medium' | 'low';
 }
 
-export function StatCards({ items }: { items: StatCardItem[] }) {
+export function StatCards({ items, bordered }: { items: StatCardItem[]; bordered?: boolean }) {
   return (
     <div className="stat-cards">
       {items.map(item => (
-        <div key={item.label} className="stat-card">
+        <div key={item.label} className={`stat-card${bordered ? ' stat-card--bordered' : ''}`}>
           <div className="stat-card__header">
             {item.icon && <span className="stat-card__icon">{item.icon}</span>}
             <span className="stat-card__label">{item.label}</span>

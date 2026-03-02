@@ -1,0 +1,53 @@
+/* ── Tooltip — Figma ldezalbJY9Ml9bWU0eMqPz 1365-13336 ──────────────────── */
+.tooltip-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 200;
+  padding: 8px;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-secondary);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-family: var(--font-sans);
+  color: var(--color-fg);
+  letter-spacing: 0.3px;
+  line-height: 16px;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 120ms;
+}
+
+.tooltip-wrap:hover .tooltip {
+  opacity: 1;
+}
+
+/* ── Placements ─────────────────────────────────────────────────────────── */
+.tooltip-wrap--top .tooltip {
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tooltip-wrap--bottom .tooltip {
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tooltip-wrap--left .tooltip {
+  right: calc(100% + 6px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.tooltip-wrap--right .tooltip {
+  left: calc(100% + 6px);
+  top: 50%;
+  transform: translateY(-50%);
+}

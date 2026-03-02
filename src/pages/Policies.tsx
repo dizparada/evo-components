@@ -4,6 +4,7 @@ import { Badge, severityVariant } from '../components/Badge';
 import { StatCards } from '../components/StatCards';
 import '../components/Table.css';
 import { Tabs } from '../components/Tabs';
+import { Tooltip } from '../components/Tooltip';
 import { policies, policyIssues } from '../data/mockData';
 import './Policies.css';
 
@@ -81,7 +82,15 @@ export function Policies() {
                 </td>
                 <td className="table__td">{policy.createdBy}</td>
                 <td className="table__td">
-                  <button className="table__more-btn"><MoreIcon /></button>
+                  {policy.id.includes('mcp') ? (
+                    <Tooltip content="MCP server policies can't be modified" placement="left">
+                      <button className="table__more-btn" disabled style={{ opacity: 0.3, cursor: 'not-allowed' }}>
+                        <MoreIcon />
+                      </button>
+                    </Tooltip>
+                  ) : (
+                    <button className="table__more-btn"><MoreIcon /></button>
+                  )}
                 </td>
               </tr>
             ))}
