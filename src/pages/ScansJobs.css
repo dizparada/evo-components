@@ -1,0 +1,81 @@
+.scans-jobs__section {
+  margin-bottom: 32px;
+}
+
+.scans-jobs__section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-bottom: none;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  padding: 8px 14px;
+}
+
+.scans-jobs__section-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.scans-jobs__section-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-fg);
+}
+
+.scans-jobs__finished-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-fg-secondary);
+}
+
+.scans-jobs__count-badge {
+  background: var(--color-bg-badge);
+  border: 1px solid var(--color-border-secondary);
+  border-radius: 10px;
+  padding: 0 6px;
+  font-size: 11px;
+  color: var(--color-fg-secondary);
+}
+
+.scans-jobs__finished-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-bottom: none;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  padding: 8px 14px;
+  margin-top: 24px;
+}
+
+.scans-jobs__progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.scans-jobs__progress-bar {
+  width: 100px;
+  height: 6px;
+  background: var(--color-border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.scans-jobs__progress-fill {
+  height: 100%;
+  background: #3b82f6;
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+
+.scans-jobs__progress-label {
+  font-size: 12px;
+  color: var(--color-fg-muted);
+  width: 32px;
+  flex-shrink: 0;
+}
