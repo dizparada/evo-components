@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
+import { Badge } from '../components/Badge';
 import { StatCards } from '../components/StatCards';
+import '../components/Table.css';
 import './Home.css';
 
 const assetSummary = [
@@ -64,45 +66,49 @@ export function Home() {
 
       {/* Tables */}
       <div className="home__tables">
-        <div className="home__table-card">
-          <div className="home__table-title">Top 5 repos by number of AI assets</div>
-          <table className="home__table">
+        <div className="table-wrap">
+          <div className="table-wrap__title">
+            <span className="table-wrap__title-text">Top 5 repos by number of AI assets</span>
+          </div>
+          <table className="table">
             <thead>
               <tr>
-                <th className="home__th">Repository name</th>
-                <th className="home__th">AI Assets</th>
-                <th className="home__th">Last week</th>
+                <th className="table__th">Repository name</th>
+                <th className="table__th">AI Assets</th>
+                <th className="table__th">Last week</th>
               </tr>
             </thead>
             <tbody>
               {topRepos.map(r => (
-                <tr key={r.name} className="home__tr">
-                  <td className="home__td">
-                    <Link to="/inventory" className="home__link">{r.name}</Link>
+                <tr key={r.name} className="table__row">
+                  <td className="table__td table__td--name">
+                    <Link to="/inventory" className="table__link">{r.name}</Link>
                   </td>
-                  <td className="home__td">{r.assets}</td>
-                  <td className="home__td home__td--delta">+{r.lastWeek}</td>
+                  <td className="table__td">{r.assets}</td>
+                  <td className="table__td table__td--highlight">+{r.lastWeek}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        <div className="home__table-card">
-          <div className="home__table-title">New assets this week</div>
-          <table className="home__table">
+        <div className="table-wrap">
+          <div className="table-wrap__title">
+            <span className="table-wrap__title-text">New assets this week</span>
+          </div>
+          <table className="table">
             <thead>
               <tr>
-                <th className="home__th">Name</th>
-                <th className="home__th">Type</th>
+                <th className="table__th">Name</th>
+                <th className="table__th">Type</th>
               </tr>
             </thead>
             <tbody>
               {newAssets.map(a => (
-                <tr key={a.name} className="home__tr">
-                  <td className="home__td">{a.name}</td>
-                  <td className="home__td">
-                    <span className="home__type-badge">{a.type}</span>
+                <tr key={a.name} className="table__row">
+                  <td className="table__td table__td--name">{a.name}</td>
+                  <td className="table__td">
+                    <Badge variant="type" label={a.type} />
                   </td>
                 </tr>
               ))}
