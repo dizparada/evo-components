@@ -60,16 +60,16 @@
 
 .scans-jobs__progress-bar {
   width: 100px;
-  height: 6px;
+  height: 8px;
   background: var(--color-border);
-  border-radius: 3px;
+  border-radius: 4px;
   overflow: hidden;
 }
 
 .scans-jobs__progress-fill {
   height: 100%;
-  background: #3b82f6;
-  border-radius: 3px;
+  background: var(--color-brand);
+  border-radius: 4px;
   transition: width 0.3s;
 }
 

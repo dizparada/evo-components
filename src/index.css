@@ -31,8 +31,9 @@
   /* status */
   --color-success-bg: #14532d;
   --color-success-fg: #86efac;
-  --color-running-bg: #1e3a5f;
-  --color-running-fg: #93c5fd;
+  --color-running-bg: #024a70;
+  --color-running-fg: #8ec5ff;
+  --color-running-border: #74d4ff;
   --color-active-bg: #3f3f46;
   --color-active-fg: #d4d4d8;
 
