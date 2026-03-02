@@ -13,7 +13,7 @@
   --color-fg-tertiary: #9f9fa9;
   --color-fg-muted: #71717a;
 
-  --color-brand: #9456d2;
+  --color-brand: var(--color-highlight);
   --color-brand-dim: #1e1030;
   --color-highlight: #cbabee;
   --color-link: var(--color-highlight);
