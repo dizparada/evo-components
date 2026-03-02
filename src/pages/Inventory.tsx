@@ -4,11 +4,11 @@ import { repositories } from '../data/mockData';
 import './Inventory.css';
 
 const statsSummary = [
-  { icon: '⊞', label: 'MCP Servers', count: 5, new: 3 },
-  { icon: '◉', label: 'Models', count: 13, new: 7 },
-  { icon: '⊟', label: 'Datasets', count: 22, new: 5 },
-  { icon: '⊡', label: 'Libraries', count: 16, new: 3 },
-  { icon: '✳', label: 'Other', count: 20, new: 5 },
+  { type: 'mcp',     label: 'MCP Servers', count: 5,  delta: 3 },
+  { type: 'model',   label: 'Models',      count: 13, delta: 7 },
+  { type: 'dataset', label: 'Datasets',    count: 22, delta: 5 },
+  { type: 'library', label: 'Libraries',   count: 16, delta: 3 },
+  { type: 'other',   label: 'Other',       count: 20, delta: 5 },
 ];
 
 export function Inventory() {
@@ -25,10 +25,14 @@ export function Inventory() {
       <div className="inventory__stats">
         {statsSummary.map(s => (
           <div key={s.label} className="inventory__stat">
-            <span className="inventory__stat-icon">{s.icon}</span>
-            <span className="inventory__stat-count">{s.count}</span>
-            <span className="inventory__stat-new">(+{s.new})</span>
-            <span className="inventory__stat-label">{s.label}</span>
+            <div className="inventory__stat-header">
+              <span className="inventory__stat-icon"><StatIcon type={s.type} /></span>
+              <span className="inventory__stat-label">{s.label}</span>
+            </div>
+            <div className="inventory__stat-body">
+              <span className="inventory__stat-count">{s.count}</span>
+              <span className="inventory__stat-delta">+{s.delta}</span>
+            </div>
           </div>
         ))}
       </div>
@@ -98,6 +102,14 @@ export function Inventory() {
       </table>
     </div>
   );
+}
+
+function StatIcon({ type }: { type: string }) {
+  if (type === 'mcp')     return <McpIcon />;
+  if (type === 'model')   return <ModelIcon />;
+  if (type === 'dataset') return <DatasetIcon />;
+  if (type === 'library') return <LibraryIcon />;
+  return <OtherIcon />;
 }
 
 type ByType = { mcp: number; model: number; dataset: number; library: number; other: number };
