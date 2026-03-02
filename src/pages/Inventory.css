@@ -18,7 +18,7 @@
 
 .inventory__stat-icon { color: var(--color-fg-tertiary); font-size: 12px; }
 .inventory__stat-count { font-weight: 600; color: var(--color-fg); }
-.inventory__stat-new { color: var(--color-fg-muted); font-size: 12px; }
+.inventory__stat-new { color: var(--color-highlight); font-size: 12px; }
 .inventory__stat-label { color: var(--color-fg-secondary); }
 
 .inventory__tabs {
@@ -157,7 +157,7 @@
 .table__row:last-child .table__td { border-bottom: none; }
 
 .table__td--name { color: var(--color-fg); font-weight: 500; }
-.table__td--green { color: #86efac; font-weight: 500; }
+.table__td--green { color: var(--color-highlight); font-weight: 500; }
 
 .table__link {
   color: var(--color-fg);
