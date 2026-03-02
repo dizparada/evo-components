@@ -159,6 +159,39 @@
 .table__td--name { color: var(--color-fg); font-weight: 500; }
 .table__td--green { color: var(--color-highlight); font-weight: 500; }
 
+.assets-by-type {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.assets-by-type__group {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.assets-by-type__count {
+  font-size: 12px;
+  color: var(--color-fg-secondary);
+  min-width: 10px;
+  text-align: right;
+}
+.assets-by-type__count--zero {
+  color: var(--color-fg-muted);
+}
+
+.assets-by-type__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-fg-tertiary);
+}
+
 .table__link {
   color: var(--color-fg);
   font-weight: 500;

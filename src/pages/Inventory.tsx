@@ -90,7 +90,7 @@ export function Inventory() {
               <td className="table__td">{repo.assets}</td>
               <td className="table__td table__td--green">+{repo.thisWeek}</td>
               <td className="table__td">
-                <IssueBadges {...repo.issues} />
+                <AssetsByType byType={repo.byType} />
               </td>
               <td className="table__td">{repo.totalIssues}</td>
             </tr>
@@ -99,6 +99,44 @@ export function Inventory() {
       </table>
     </div>
   );
+}
+
+type ByType = { mcp: number; model: number; dataset: number; library: number; other: number };
+
+function AssetsByType({ byType }: { byType: ByType }) {
+  const types: { key: keyof ByType; icon: JSX.Element }[] = [
+    { key: 'mcp',     icon: <McpIcon /> },
+    { key: 'model',   icon: <ModelIcon /> },
+    { key: 'dataset', icon: <DatasetIcon /> },
+    { key: 'library', icon: <LibraryIcon /> },
+    { key: 'other',   icon: <OtherIcon /> },
+  ];
+  return (
+    <div className="assets-by-type">
+      {types.map(({ key, icon }) => (
+        <span key={key} className="assets-by-type__group">
+          <span className={`assets-by-type__count ${byType[key] === 0 ? 'assets-by-type__count--zero' : ''}`}>{byType[key]}</span>
+          <span className="assets-by-type__icon">{icon}</span>
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function McpIcon() {
+  return <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.3"><rect x="2" y="2" width="10" height="10" rx="1.5"/><rect x="4.5" y="4.5" width="5" height="5" rx="0.5"/></svg>;
+}
+function ModelIcon() {
+  return <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.3"><circle cx="7" cy="7" r="4.5"/><path d="M7 4v3l2 1.5"/></svg>;
+}
+function DatasetIcon() {
+  return <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.3"><path d="M3 2h6l2 2v8H3V2z"/><path d="M9 2v2h2"/><path d="M5 6h4M5 8.5h4M5 11h2"/></svg>;
+}
+function LibraryIcon() {
+  return <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.3"><rect x="2" y="8" width="10" height="2.5" rx="0.5"/><rect x="2" y="5" width="10" height="2.5" rx="0.5"/><rect x="2" y="2" width="10" height="2.5" rx="0.5"/></svg>;
+}
+function OtherIcon() {
+  return <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.3"><path d="M7 2v10M2 7h10"/><path d="M4 4l6 6M10 4l-6 6"/></svg>;
 }
 
 function SearchIcon() {

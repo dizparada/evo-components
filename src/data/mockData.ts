@@ -1,14 +1,14 @@
 export const repositories = [
-  { id: 'fintech-advisory-bot', name: 'fintech-advisory-bot', assets: 36, thisWeek: 7, issues: { critical: 2, high: 4, medium: 3, low: 3 }, totalIssues: 12 },
-  { id: 'hr-advisory-bot', name: 'hr-advisory-bot', assets: 15, thisWeek: 6, issues: { critical: 0, high: 2, medium: 2, low: 1 }, totalIssues: 5 },
-  { id: 'dev-advisory-bot', name: 'dev-advisory-bot', assets: 4, thisWeek: 3, issues: { critical: 1, high: 6, medium: 6, low: 3 }, totalIssues: 16 },
-  { id: 'acme-lorem-repo-name', name: 'acme-lorem-repo-name', assets: 7, thisWeek: 3, issues: { critical: 0, high: 0, medium: 0, low: 0 }, totalIssues: 0 },
-  { id: 'dolor-long-repo-name', name: 'dolor-long-repo-name', assets: 4, thisWeek: 2, issues: { critical: 0, high: 0, medium: 0, low: 0 }, totalIssues: 0 },
-  { id: 'amet-long-repo-name', name: 'amet-long-repo-name', assets: 4, thisWeek: 2, issues: { critical: 0, high: 0, medium: 1, low: 2 }, totalIssues: 0 },
-  { id: 'ipsum-long-repo-name', name: 'ipsum-long-repo-name', assets: 3, thisWeek: 0, issues: { critical: 0, high: 0, medium: 1, low: 2 }, totalIssues: 0 },
-  { id: 'nunquam-repo-name', name: 'nunquam-repo-name', assets: 3, thisWeek: 0, issues: { critical: 0, high: 0, medium: 1, low: 2 }, totalIssues: 0 },
-  { id: 'another-long-repo-name', name: 'another-long-repo-name', assets: 2, thisWeek: 0, issues: { critical: 0, high: 0, medium: 1, low: 1 }, totalIssues: 0 },
-  { id: 'acme-another-repo-name', name: 'acme-another-repo-name', assets: 2, thisWeek: 0, issues: { critical: 0, high: 0, medium: 1, low: 1 }, totalIssues: 0 },
+  { id: 'fintech-advisory-bot', name: 'fintech-advisory-bot', assets: 36, thisWeek: 7, byType: { mcp: 8, model: 9, dataset: 11, library: 5, other: 3 }, issues: { critical: 2, high: 4, medium: 3, low: 3 }, totalIssues: 12 },
+  { id: 'hr-advisory-bot', name: 'hr-advisory-bot', assets: 15, thisWeek: 6, byType: { mcp: 0, model: 4, dataset: 5, library: 3, other: 3 }, issues: { critical: 0, high: 2, medium: 2, low: 1 }, totalIssues: 5 },
+  { id: 'dev-advisory-bot', name: 'dev-advisory-bot', assets: 4, thisWeek: 3, byType: { mcp: 0, model: 2, dataset: 0, library: 1, other: 1 }, issues: { critical: 1, high: 6, medium: 6, low: 3 }, totalIssues: 16 },
+  { id: 'acme-lorem-repo-name', name: 'acme-lorem-repo-name', assets: 7, thisWeek: 3, byType: { mcp: 0, model: 0, dataset: 4, library: 1, other: 2 }, issues: { critical: 0, high: 0, medium: 0, low: 0 }, totalIssues: 0 },
+  { id: 'dolor-long-repo-name', name: 'dolor-long-repo-name', assets: 4, thisWeek: 2, byType: { mcp: 0, model: 0, dataset: 1, library: 1, other: 2 }, issues: { critical: 0, high: 0, medium: 0, low: 0 }, totalIssues: 0 },
+  { id: 'amet-long-repo-name', name: 'amet-long-repo-name', assets: 4, thisWeek: 2, byType: { mcp: 0, model: 0, dataset: 1, library: 1, other: 2 }, issues: { critical: 0, high: 0, medium: 1, low: 2 }, totalIssues: 0 },
+  { id: 'ipsum-long-repo-name', name: 'ipsum-long-repo-name', assets: 3, thisWeek: 0, byType: { mcp: 0, model: 0, dataset: 0, library: 1, other: 2 }, issues: { critical: 0, high: 0, medium: 1, low: 2 }, totalIssues: 0 },
+  { id: 'nunquam-repo-name', name: 'nunquam-repo-name', assets: 3, thisWeek: 0, byType: { mcp: 0, model: 0, dataset: 0, library: 1, other: 2 }, issues: { critical: 0, high: 0, medium: 1, low: 2 }, totalIssues: 0 },
+  { id: 'another-long-repo-name', name: 'another-long-repo-name', assets: 2, thisWeek: 0, byType: { mcp: 0, model: 0, dataset: 0, library: 1, other: 1 }, issues: { critical: 0, high: 0, medium: 1, low: 1 }, totalIssues: 0 },
+  { id: 'acme-another-repo-name', name: 'acme-another-repo-name', assets: 2, thisWeek: 0, byType: { mcp: 0, model: 0, dataset: 0, library: 1, other: 1 }, issues: { critical: 0, high: 0, medium: 1, low: 1 }, totalIssues: 0 },
 ];
 
 export const assets: Record<string, { id: string; name: string; type: string; issues: { critical: number; high: number; medium: number; low: number }; vendor: string }[]> = {
