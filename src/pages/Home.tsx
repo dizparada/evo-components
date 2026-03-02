@@ -1,28 +1,149 @@
+import { Link } from 'react-router-dom';
 import './Home.css';
+
+const assetSummary = [
+  { type: 'mcp',     label: 'MCP Servers', count: 5,  delta: 3 },
+  { type: 'model',   label: 'Models',      count: 13, delta: 7 },
+  { type: 'dataset', label: 'Datasets',    count: 22, delta: 5 },
+  { type: 'library', label: 'Libraries',   count: 16, delta: 3 },
+  { type: 'other',   label: 'Other',       count: 20, delta: 8 },
+];
+
+const issueSummary = [
+  { label: 'Critical Issues', count: 2,  delta: 1, variant: 'critical' },
+  { label: 'High Issues',     count: 10, delta: 2, variant: 'high' },
+  { label: 'Medium Issues',   count: 10, delta: 2, variant: 'medium' },
+  { label: 'Low Issues',      count: 11, delta: 1, variant: 'low' },
+];
+
+const topRepos = [
+  { name: 'fintech-advisory-bot', assets: 23, lastWeek: 9 },
+  { name: 'lore-ipsum-name',      assets: 20, lastWeek: 11 },
+  { name: 'name-dolor-sit-amet',  assets: 18, lastWeek: 5 },
+  { name: 'acme-repo-name',       assets: 17, lastWeek: 3 },
+  { name: 'long-repo-name',       assets: 16, lastWeek: 5 },
+];
+
+const newAssets = [
+  { name: 'gpt-4o-turbo',      type: 'Model' },
+  { name: 'Library-name-acme', type: 'Library' },
+  { name: 'mcp-server-acme',   type: 'MCP Server' },
+  { name: 'Lorem ipsum dolor', type: 'Model' },
+  { name: 'new-ai-asset',      type: 'Model' },
+];
 
 export function Home() {
   return (
     <div className="home">
-      <h1 className="home__title">Welcome to Evo</h1>
-      <p className="home__subtitle">AI governance and security platform</p>
-      <div className="home__cards">
-        <div className="home__card">
-          <h3>10 Repositories</h3>
-          <p>Scanned and monitored</p>
+
+      {/* Asset summary row */}
+      <div className="home__assets">
+        {assetSummary.map(s => (
+          <div key={s.type} className="home__asset-item">
+            <span className="home__asset-icon"><AssetIcon type={s.type} /></span>
+            <span className="home__asset-count">{s.count}</span>
+            <span className="home__asset-delta">(+{s.delta})</span>
+            <span className="home__asset-label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="home__divider" />
+
+      {/* Issues KPI row */}
+      <div className="home__issues">
+        {issueSummary.map(i => (
+          <div key={i.label} className="home__issue-item">
+            <span className={`home__issue-count home__issue-count--${i.variant}`}>{i.count}</span>
+            <span className="home__issue-meta">
+              <span className={`home__issue-label home__issue-label--${i.variant}`}>{i.label} </span>
+              <span className="home__issue-delta">(+{i.delta})</span>
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <div className="home__divider" />
+
+      {/* Tables */}
+      <div className="home__tables">
+        <div className="home__table-card">
+          <div className="home__table-title">Top 5 repos by number of AI assets</div>
+          <table className="home__table">
+            <thead>
+              <tr>
+                <th className="home__th">Repository name</th>
+                <th className="home__th">AI Assets</th>
+                <th className="home__th">Last week</th>
+              </tr>
+            </thead>
+            <tbody>
+              {topRepos.map(r => (
+                <tr key={r.name} className="home__tr">
+                  <td className="home__td">
+                    <Link to="/inventory" className="home__link">{r.name}</Link>
+                  </td>
+                  <td className="home__td">{r.assets}</td>
+                  <td className="home__td home__td--delta">+{r.lastWeek}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-        <div className="home__card">
-          <h3>5 Active issues</h3>
-          <p>Across all policies</p>
-        </div>
-        <div className="home__card">
-          <h3>1 Active scan</h3>
-          <p>Currently running</p>
-        </div>
-        <div className="home__card">
-          <h3>10 Policies</h3>
-          <p>Governing your AI assets</p>
+
+        <div className="home__table-card">
+          <div className="home__table-title">New assets this week</div>
+          <table className="home__table">
+            <thead>
+              <tr>
+                <th className="home__th">Name</th>
+                <th className="home__th">Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              {newAssets.map(a => (
+                <tr key={a.name} className="home__tr">
+                  <td className="home__td">{a.name}</td>
+                  <td className="home__td">
+                    <span className="home__type-badge">{a.type}</span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
+
     </div>
+  );
+}
+
+function AssetIcon({ type }: { type: string }) {
+  if (type === 'mcp') return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3">
+      <rect x="2" y="2" width="12" height="12" rx="2"/><rect x="5" y="5" width="6" height="6" rx="0.5"/>
+    </svg>
+  );
+  if (type === 'model') return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3">
+      <circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2 1.5"/>
+    </svg>
+  );
+  if (type === 'dataset') return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3">
+      <path d="M4 2h6l3 3v9H4V2z"/><path d="M10 2v3h3"/><path d="M6 8h4M6 10.5h4M6 13h2"/>
+    </svg>
+  );
+  if (type === 'library') return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3">
+      <rect x="2" y="9.5" width="12" height="3" rx="0.5"/>
+      <rect x="2" y="6"   width="12" height="3" rx="0.5"/>
+      <rect x="2" y="2.5" width="12" height="3" rx="0.5"/>
+    </svg>
+  );
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3">
+      <path d="M8 2v12M2 8h12M4.5 4.5l7 7M11.5 4.5l-7 7"/>
+    </svg>
   );
 }

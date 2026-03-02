@@ -1,31 +1,169 @@
-.home__title {
-  font-size: 22px;
-  font-weight: 600;
-  margin: 0 0 6px;
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-.home__subtitle {
-  color: var(--color-fg-secondary);
-  margin: 0 0 28px;
+
+/* Asset summary row */
+.home__assets {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.home__asset-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.home__asset-icon {
+  display: flex;
+  align-items: center;
+  color: var(--color-fg-tertiary);
+}
+
+.home__asset-count {
   font-size: 14px;
-}
-.home__cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-.home__card {
-  background: var(--color-bg-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: 20px;
-}
-.home__card h3 {
-  margin: 0 0 4px;
-  font-size: 18px;
   font-weight: 600;
+  color: var(--color-fg);
 }
-.home__card p {
-  margin: 0;
+
+.home__asset-delta {
+  font-size: 12px;
+  color: var(--color-highlight);
+}
+
+.home__asset-label {
   font-size: 13px;
   color: var(--color-fg-tertiary);
+}
+
+/* Divider */
+.home__divider {
+  height: 1px;
+  background: var(--color-border);
+}
+
+/* Issues KPI row */
+.home__issues {
+  display: flex;
+  gap: 16px;
+}
+
+.home__issue-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-surface);
+}
+
+.home__issue-count {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.home__issue-count--critical { color: var(--color-critical-fg); }
+.home__issue-count--high     { color: var(--color-high-fg); }
+.home__issue-count--medium   { color: var(--color-medium-fg); }
+.home__issue-count--low      { color: var(--color-low-fg); }
+
+.home__issue-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.home__issue-label {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.home__issue-label--critical { color: var(--color-critical-fg); }
+.home__issue-label--high     { color: var(--color-high-fg); }
+.home__issue-label--medium   { color: var(--color-medium-fg); }
+.home__issue-label--low      { color: var(--color-low-fg); }
+
+.home__issue-delta {
+  font-size: 11px;
+  color: var(--color-highlight);
+}
+
+/* Tables side by side */
+.home__tables {
+  display: flex;
+  gap: 16px;
+}
+
+.home__table-card {
+  flex: 1;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-surface);
+  overflow: hidden;
+}
+
+.home__table-title {
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-fg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.home__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.home__th {
+  padding: 8px 16px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-fg-secondary);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg-surface);
+  white-space: nowrap;
+}
+
+.home__tr {
+  transition: background 80ms;
+}
+.home__tr:hover { background: var(--color-bg-surface-hover); }
+.home__tr:last-child .home__td { border-bottom: none; }
+
+.home__td {
+  padding: 8px 16px;
+  color: var(--color-fg-secondary);
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+
+.home__td--delta {
+  color: var(--color-highlight);
+  font-weight: 500;
+}
+
+.home__link {
+  color: var(--color-fg);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 120ms;
+}
+.home__link:hover { color: var(--color-link); text-decoration: underline; }
+
+.home__type-badge {
+  display: inline-block;
+  background: var(--color-bg-badge);
+  border: 1px solid var(--color-border-secondary);
+  border-radius: var(--radius-md);
+  padding: 1px 6px;
+  font-size: 11px;
+  color: var(--color-fg-secondary);
 }
