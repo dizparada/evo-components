@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { IssueBadges } from '../components/Badge';
 import { repositories } from '../data/mockData';
 import './Inventory.css';
 
@@ -104,7 +103,7 @@ export function Inventory() {
 type ByType = { mcp: number; model: number; dataset: number; library: number; other: number };
 
 function AssetsByType({ byType }: { byType: ByType }) {
-  const types: { key: keyof ByType; icon: JSX.Element }[] = [
+  const types: { key: keyof ByType; icon: ReactNode }[] = [
     { key: 'mcp',     icon: <McpIcon /> },
     { key: 'model',   icon: <ModelIcon /> },
     { key: 'dataset', icon: <DatasetIcon /> },
