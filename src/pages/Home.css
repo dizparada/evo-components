@@ -31,7 +31,7 @@
 
 .home__asset-delta {
   font-size: 12px;
-  color: var(--color-highlight);
+  color: var(--color-link);
 }
 
 .home__asset-label {
@@ -45,7 +45,7 @@
   background: var(--color-border);
 }
 
-/* Issues KPI row */
+/* Issues row — no card backgrounds, plain text columns */
 .home__issues {
   display: flex;
   gap: 16px;
@@ -54,17 +54,14 @@
 .home__issue-item {
   flex: 1;
   display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 16px;
-  border-radius: var(--radius-lg);
-  background: var(--color-bg-surface);
+  flex-direction: column;
+  gap: 4px;
 }
 
 .home__issue-count {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 1;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
 }
 
 .home__issue-count--critical { color: var(--color-critical-fg); }
@@ -74,13 +71,13 @@
 
 .home__issue-meta {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  align-items: baseline;
+  gap: 4px;
 }
 
 .home__issue-label {
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 400;
 }
 
 .home__issue-label--critical { color: var(--color-critical-fg); }
@@ -89,8 +86,8 @@
 .home__issue-label--low      { color: var(--color-low-fg); }
 
 .home__issue-delta {
-  font-size: 11px;
-  color: var(--color-highlight);
+  font-size: 13px;
+  color: var(--color-link);
 }
 
 /* Tables side by side */
@@ -105,14 +102,16 @@
   border-radius: var(--radius-lg);
   background: var(--color-bg-surface);
   overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .home__table-title {
   padding: 10px 16px;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 400;
   color: var(--color-fg);
   border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg-surface);
 }
 
 .home__table {
@@ -122,13 +121,14 @@
 }
 
 .home__th {
-  padding: 8px 16px;
+  padding: 0 16px;
+  height: 32px;
   text-align: left;
   font-size: 12px;
   font-weight: 400;
   color: var(--color-fg-secondary);
   border-bottom: 1px solid var(--color-border);
-  background: var(--color-bg-surface);
+  background: var(--color-bg);
   white-space: nowrap;
 }
 
@@ -139,20 +139,20 @@
 .home__tr:last-child .home__td { border-bottom: none; }
 
 .home__td {
-  padding: 8px 16px;
-  color: var(--color-fg-secondary);
+  padding: 10px 16px;
+  color: var(--color-fg);
   border-bottom: 1px solid var(--color-border);
   vertical-align: middle;
 }
 
 .home__td--delta {
-  color: var(--color-highlight);
+  color: var(--color-link);
   font-weight: 500;
 }
 
 .home__link {
   color: var(--color-fg);
-  font-weight: 500;
+  font-weight: 400;
   text-decoration: none;
   transition: color 120ms;
 }
@@ -164,6 +164,6 @@
   border: 1px solid var(--color-border-secondary);
   border-radius: var(--radius-md);
   padding: 1px 6px;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--color-fg-secondary);
 }
