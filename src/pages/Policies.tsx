@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Badge, severityVariant } from '../components/Badge';
 import { StatCards } from '../components/StatCards';
+import { Tabs } from '../components/Tabs';
 import { policies, policyIssues } from '../data/mockData';
 import './Policies.css';
 
@@ -35,20 +36,7 @@ export function Policies() {
       }))} />
 
       <div className="policies__tabs-row">
-        <div className="policies__tabs">
-          <button
-            className={`policies__tab ${activeTab === 'policies' ? 'policies__tab--active' : ''}`}
-            onClick={() => setActiveTab('policies')}
-          >
-            Policies <span className="policies__tab-count">{policies.length}</span>
-          </button>
-          <button
-            className={`policies__tab ${activeTab === 'issues' ? 'policies__tab--active' : ''}`}
-            onClick={() => setActiveTab('issues')}
-          >
-            Issues <span className="policies__tab-count">{policyIssues.length}</span>
-          </button>
-        </div>
+        <Tabs variant="line" tabs={[{ value: 'policies', label: 'Policies', badge: policies.length }, { value: 'issues', label: 'Issues', badge: policyIssues.length }]} value={activeTab} onChange={v => setActiveTab(v as 'policies' | 'issues')} />
         {activeTab === 'policies' && (
           <button className="policies__create-btn" onClick={() => navigate('/policies/create')}>Create policy</button>
         )}

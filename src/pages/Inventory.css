@@ -1,42 +1,4 @@
 
-.inventory__tabs {
-  display: flex;
-  gap: 0;
-  border-bottom: 1px solid var(--color-border);
-  margin-bottom: 16px;
-}
-
-.inventory__tab {
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  padding: 8px 0;
-  margin-right: 24px;
-  margin-bottom: -1px;
-  color: var(--color-fg-tertiary);
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: color 120ms;
-}
-.inventory__tab:hover { color: var(--color-fg); }
-.inventory__tab--active {
-  color: var(--color-fg);
-  border-bottom-color: var(--color-brand);
-}
-
-.inventory__tab-badge {
-  background: var(--color-bg-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 10px;
-  padding: 0 6px;
-  font-size: 11px;
-  color: var(--color-fg-secondary);
-}
-
 .inventory__toolbar {
   display: flex;
   align-items: center;
@@ -70,28 +32,6 @@
   width: 160px;
 }
 .inventory__search::placeholder { color: var(--color-fg-muted); }
-
-.inventory__view-toggle {
-  display: flex;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-
-.inventory__view-btn {
-  background: none;
-  border: none;
-  padding: 5px 12px;
-  font-size: 12px;
-  color: var(--color-fg-tertiary);
-  cursor: pointer;
-  transition: background 120ms, color 120ms;
-}
-.inventory__view-btn:hover { background: var(--color-bg-surface-hover); color: var(--color-fg); }
-.inventory__view-btn--active {
-  background: var(--color-bg-surface);
-  color: var(--color-fg);
-}
 
 /* Tables (shared) */
 .table {

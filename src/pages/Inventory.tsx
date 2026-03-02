@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { StatCards } from '../components/StatCards';
+import { Tabs } from '../components/Tabs';
 import { repositories } from '../data/mockData';
 import './Inventory.css';
 
@@ -30,16 +31,7 @@ export function Inventory() {
         delta: s.delta,
       }))} />
 
-      <div className="inventory__tabs">
-        <button
-          className={`inventory__tab ${activeTab === 'ai-bom' ? 'inventory__tab--active' : ''}`}
-          onClick={() => setActiveTab('ai-bom')}
-        >AI-BOM</button>
-        <button
-          className={`inventory__tab ${activeTab === 'custom' ? 'inventory__tab--active' : ''}`}
-          onClick={() => setActiveTab('custom')}
-        >Custom discovery <span className="inventory__tab-badge">3</span></button>
-      </div>
+      <Tabs variant="line" tabs={[{ value: 'ai-bom', label: 'AI-BOM' }, { value: 'custom', label: 'Custom discovery', badge: 3 }]} value={activeTab} onChange={v => setActiveTab(v as 'ai-bom' | 'custom')} />
 
       <div className="inventory__toolbar">
         <span className="inventory__count">Repositories: {filtered.length}</span>
@@ -53,16 +45,7 @@ export function Inventory() {
             onChange={e => setSearch(e.target.value)}
           />
         </div>
-        <div className="inventory__view-toggle">
-          <button
-            className={`inventory__view-btn ${view === 'repositories' ? 'inventory__view-btn--active' : ''}`}
-            onClick={() => setView('repositories')}
-          >Repositories</button>
-          <button
-            className={`inventory__view-btn ${view === 'assets' ? 'inventory__view-btn--active' : ''}`}
-            onClick={() => setView('assets')}
-          >AI assets</button>
-        </div>
+        <Tabs variant="contained" tabs={[{ value: 'repositories', label: 'Repositories' }, { value: 'assets', label: 'AI assets' }]} value={view} onChange={v => setView(v as 'repositories' | 'assets')} />
       </div>
 
       <table className="table">

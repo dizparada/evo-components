@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Badge, IssueBadges } from '../components/Badge';
+import { Tabs } from '../components/Tabs';
 import { assets, repositories } from '../data/mockData';
 import './RepositoryDetails.css';
 
@@ -51,19 +52,8 @@ export function RepositoryDetails() {
         </div>
       </div>
 
-      <div className="repo-details__tabs">
-        <button
-          className={`repo-details__tab ${activeTab === 'assets' ? 'repo-details__tab--active' : ''}`}
-          onClick={() => setActiveTab('assets')}
-        >
-          Assets <span className="repo-details__tab-count">{repoAssets.length}</span>
-        </button>
-        <button
-          className={`repo-details__tab ${activeTab === 'issues' ? 'repo-details__tab--active' : ''}`}
-          onClick={() => setActiveTab('issues')}
-        >
-          Issues <span className="repo-details__tab-count">{totalIssues}</span>
-        </button>
+      <div style={{ marginBottom: 16 }}>
+        <Tabs variant="line" tabs={[{ value: 'assets', label: 'Assets', badge: repoAssets.length }, { value: 'issues', label: 'Issues', badge: totalIssues }]} value={activeTab} onChange={v => setActiveTab(v as 'assets' | 'issues')} />
       </div>
 
       {activeTab === 'assets' && (

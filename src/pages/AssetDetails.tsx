@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Badge, IssueBadges, severityVariant } from '../components/Badge';
+import { Tabs } from '../components/Tabs';
 import { assetDetails, assets } from '../data/mockData';
 import './AssetDetails.css';
 
@@ -87,20 +88,7 @@ export function AssetDetails() {
         </button>
       </div>
 
-      <div className="asset-details__tabs">
-        {tabs.map(({ key, label, count }) => (
-          <button
-            key={key}
-            className={`asset-details__tab ${activeTab === key ? 'asset-details__tab--active' : ''}`}
-            onClick={() => setActiveTab(key)}
-          >
-            {label}
-            {count !== undefined && (
-              <span className="asset-details__tab-count">{count}</span>
-            )}
-          </button>
-        ))}
-      </div>
+      <Tabs variant="line" tabs={tabs.map(t => ({ value: t.key, label: t.label, badge: t.count }))} value={activeTab} onChange={v => setActiveTab(v as Tab)} />
 
       {activeTab === 'risk' && <RiskProfile data={displayDetail.riskProfile} infrastructure={displayDetail.infrastructure} audit={displayDetail.audit} />}
       {activeTab === 'capabilities' && <Capabilities data={displayDetail.capabilities} />}
