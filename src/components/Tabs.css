@@ -1,4 +1,4 @@
-/* Contained variant — Figma GKHSL8s3gPJsdvwuFdBc9K 2449-101120 */
+/* Contained variant — Figma GKHSL8s3gPJsdvwuFdBc9K 2072-81848 */
 .tabs--contained {
   display: inline-flex;
   border: 1px solid var(--color-border);
@@ -7,9 +7,10 @@
   overflow: hidden;
 }
 
+/* Default */
 .tabs--contained .tabs__tab {
-  background: none;
-  border: none;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
   padding: 4px 8px;
   font-size: 13px;
   font-family: var(--font-sans);
@@ -18,11 +19,27 @@
   white-space: nowrap;
   transition: background 120ms, color 120ms;
 }
-.tabs--contained .tabs__tab:hover { background: var(--color-bg-surface-hover); }
+/* Hover */
+.tabs--contained .tabs__tab:hover {
+  background: var(--color-border);
+  color: var(--color-fg-secondary);
+}
+/* Active */
 .tabs--contained .tabs__tab--active {
   background: #ffffff;
+  border-color: #ffffff;
   color: var(--color-bg-surface);
-  border: 1px solid #ffffff;
+}
+.tabs--contained .tabs__tab--active:hover {
+  background: #ffffff;
+  color: var(--color-bg-surface);
+}
+/* Disabled */
+.tabs--contained .tabs__tab:disabled,
+.tabs--contained .tabs__tab--disabled {
+  color: rgba(255, 255, 255, 0.24);
+  cursor: default;
+  pointer-events: none;
 }
 
 /* Line variant */
@@ -31,6 +48,7 @@
   border-bottom: 1px solid var(--color-border);
 }
 
+/* Default */
 .tabs--line .tabs__tab {
   background: none;
   border: none;
@@ -49,11 +67,15 @@
   white-space: nowrap;
   transition: color 120ms;
 }
-.tabs--line .tabs__tab:hover { color: var(--color-fg); }
+/* Hover */
+.tabs--line .tabs__tab:hover { color: var(--color-fg-secondary); }
+/* Active */
 .tabs--line .tabs__tab--active {
   color: var(--color-fg);
   border-bottom-color: var(--color-brand);
 }
+.tabs--line .tabs__tab--active:hover { color: var(--color-fg); }
+/* Disabled */
 .tabs--line .tabs__tab:disabled,
 .tabs--line .tabs__tab--disabled {
   color: rgba(255, 255, 255, 0.24);
@@ -61,7 +83,7 @@
   pointer-events: none;
 }
 
-/* Badge on tabs */
+/* Badge on line tabs */
 .tabs__badge {
   background: var(--color-bg);
   border: 1px solid var(--color-border);
