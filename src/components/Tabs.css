@@ -1,0 +1,73 @@
+/* Contained variant — Figma GKHSL8s3gPJsdvwuFdBc9K 2449-101120 */
+.tabs--contained {
+  display: inline-flex;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-surface);
+  overflow: hidden;
+}
+
+.tabs--contained .tabs__tab {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  font-size: 13px;
+  font-family: var(--font-sans);
+  color: var(--color-fg);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 120ms, color 120ms;
+}
+.tabs--contained .tabs__tab:hover { background: var(--color-bg-surface-hover); }
+.tabs--contained .tabs__tab--active {
+  background: #ffffff;
+  color: var(--color-bg-surface);
+  border: 1px solid #ffffff;
+}
+
+/* Line variant */
+.tabs--line {
+  display: flex;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tabs--line .tabs__tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 8px 0;
+  margin-right: 24px;
+  margin-bottom: -1px;
+  color: var(--color-fg-tertiary);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: color 120ms;
+}
+.tabs--line .tabs__tab:hover { color: var(--color-fg); }
+.tabs--line .tabs__tab--active {
+  color: var(--color-fg);
+  border-bottom-color: var(--color-brand);
+}
+.tabs--line .tabs__tab:disabled,
+.tabs--line .tabs__tab--disabled {
+  color: rgba(255, 255, 255, 0.24);
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Badge on tabs */
+.tabs__badge {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 1px 6px;
+  font-size: 12px;
+  color: var(--color-fg-tertiary);
+  font-weight: 400;
+}
