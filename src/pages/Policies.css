@@ -22,7 +22,7 @@
 }
 
 .policies__summary-new {
-  color: var(--color-fg-muted);
+  color: var(--color-highlight);
   font-size: 12px;
 }
 

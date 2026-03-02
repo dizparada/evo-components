@@ -15,7 +15,8 @@
 
   --color-brand: #9456d2;
   --color-brand-dim: #1e1030;
-  --color-link: #cbabee;
+  --color-highlight: #cbabee;
+  --color-link: var(--color-highlight);
 
   /* severity */
   --color-critical-bg: #7f1d1d;
