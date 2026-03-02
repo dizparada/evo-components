@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { StatCards } from '../components/StatCards';
 import './Home.css';
 
 const assetSummary = [
@@ -37,16 +38,12 @@ export function Home() {
     <div className="home">
 
       {/* Asset summary row */}
-      <div className="home__assets">
-        {assetSummary.map(s => (
-          <div key={s.type} className="home__asset-item">
-            <span className="home__asset-icon"><AssetIcon type={s.type} /></span>
-            <span className="home__asset-count">{s.count}</span>
-            <span className="home__asset-delta">(+{s.delta})</span>
-            <span className="home__asset-label">{s.label}</span>
-          </div>
-        ))}
-      </div>
+      <StatCards items={assetSummary.map(s => ({
+        icon: <AssetIcon type={s.type} />,
+        label: s.label,
+        count: s.count,
+        delta: s.delta,
+      }))} />
 
       <div className="home__divider" />
 

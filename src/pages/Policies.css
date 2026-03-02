@@ -1,30 +1,3 @@
-.policies__summary {
-  display: flex;
-  gap: 32px;
-  margin-bottom: 24px;
-}
-
-.policies__summary-item {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.policies__summary-count {
-  font-size: 28px;
-  font-weight: 600;
-  line-height: 1;
-}
-
-.policies__summary-label {
-  font-size: 13px;
-  color: var(--color-fg-secondary);
-}
-
-.policies__summary-new {
-  color: var(--color-highlight);
-  font-size: 12px;
-}
 
 .policies__tabs-row {
   display: flex;

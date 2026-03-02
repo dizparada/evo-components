@@ -1,5 +1,6 @@
 import { useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import { StatCards } from '../components/StatCards';
 import { repositories } from '../data/mockData';
 import './Inventory.css';
 
@@ -22,20 +23,12 @@ export function Inventory() {
 
   return (
     <div className="inventory">
-      <div className="inventory__stats">
-        {statsSummary.map(s => (
-          <div key={s.label} className="inventory__stat">
-            <div className="inventory__stat-header">
-              <span className="inventory__stat-icon"><StatIcon type={s.type} /></span>
-              <span className="inventory__stat-label">{s.label}</span>
-            </div>
-            <div className="inventory__stat-body">
-              <span className="inventory__stat-count">{s.count}</span>
-              <span className="inventory__stat-delta">+{s.delta}</span>
-            </div>
-          </div>
-        ))}
-      </div>
+      <StatCards items={statsSummary.map(s => ({
+        icon: <StatIcon type={s.type} />,
+        label: s.label,
+        count: s.count,
+        delta: s.delta,
+      }))} />
 
       <div className="inventory__tabs">
         <button
