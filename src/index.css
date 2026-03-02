@@ -19,13 +19,13 @@
   --color-link: var(--color-highlight);
 
   /* severity */
-  --color-critical-bg: #7f1d1d;
-  --color-critical-fg: #fca5a5;
-  --color-high-bg: #7c2d12;
-  --color-high-fg: #fdba74;
-  --color-medium-bg: #713f12;
-  --color-medium-fg: #fcd34d;
-  --color-low-bg: #3f3f46;
+  --color-critical-bg: #9f0712;
+  --color-critical-fg: #ffe2e2;
+  --color-high-bg: #9f2d00;
+  --color-high-fg: #ffedd4;
+  --color-medium-bg: #894b00;
+  --color-medium-fg: #fef9c2;
+  --color-low-bg: #52525c;
   --color-low-fg: #d4d4d8;
 
   /* status */
@@ -36,6 +36,9 @@
   --color-running-border: #0069a8;
   --color-active-bg: #3f3f46;
   --color-active-fg: #d4d4d8;
+  --color-info-bg: #024a70;
+  --color-info-border: #74d4ff;
+  --color-info-fg: #8ec5ff;
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --radius-sm: 4px;

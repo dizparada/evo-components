@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .reports__title { font-size: 18px; font-weight: 600; margin: 0; }
@@ -172,7 +172,7 @@
   position: relative;
 }
 
-.reports-empty__icon { margin-bottom: 20px; }
+.reports-empty__icon { margin-bottom: 16px; }
 
 .reports-empty__title {
   font-size: 22px;

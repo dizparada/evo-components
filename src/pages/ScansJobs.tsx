@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Badge } from '../components/Badge';
+import '../components/Table.css';
 import { scansJobs } from '../data/mockData';
 import './ScansJobs.css';
 

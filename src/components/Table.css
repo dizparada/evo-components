@@ -1,0 +1,445 @@
+/* ── Table container — Figma GKHSL8s3gPJsdvwuFdBc9K 2050-85759 ─────────── */
+.table-wrap {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional title header (simple) */
+.table-wrap__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 40px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg-surface);
+}
+
+.table-wrap__title-text {
+  font-size: 12px;
+  font-family: var(--font-sans);
+  color: var(--color-fg-secondary);
+  letter-spacing: 0.3px;
+}
+
+/* ── Table toolbar — Figma 3288-74396 ──────────────────────────────────── */
+.table-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.table-toolbar__start {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.table-toolbar__title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-fg);
+  white-space: nowrap;
+}
+
+.table-toolbar__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  min-width: 24px;
+  padding: 0 6px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 11px;
+  color: var(--color-fg-tertiary);
+  flex-shrink: 0;
+}
+
+.table-toolbar__end {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.table-toolbar__search-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.table-toolbar__search-icon {
+  position: absolute;
+  left: 8px;
+  color: var(--color-fg-muted);
+  display: flex;
+  pointer-events: none;
+  line-height: 0;
+}
+
+.table-toolbar__search {
+  width: 200px;
+  height: 28px;
+  padding: 0 8px 0 28px;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-family: var(--font-sans);
+  color: var(--color-fg);
+  outline: none;
+  transition: border-color 120ms;
+}
+
+.table-toolbar__search::placeholder { color: var(--color-fg-muted); }
+.table-toolbar__search:focus { border-color: var(--color-fg-secondary); }
+
+/* ── Table standalone — includes border/radius/shadow ──────────────────── */
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* When inside .table-wrap, the wrap handles border/radius/shadow */
+.table-wrap .table {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* ── Header cells — Figma 3288-74208, 1627-4752 ────────────────────────── */
+.table__th {
+  height: 36px;
+  padding: 0 16px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: var(--font-sans);
+  color: var(--color-fg-secondary);
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  user-select: none;
+}
+
+.table__th-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.table__th-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-fg-muted);
+  opacity: 0.6;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.table__th--sortable {
+  cursor: pointer;
+}
+
+.table__th--sortable:hover {
+  background: var(--color-bg-surface);
+  color: var(--color-fg);
+}
+
+.table__th--sortable:hover .table__th-icon {
+  opacity: 1;
+}
+
+/* ── Rows ──────────────────────────────────────────────────────────────── */
+.table__row {
+  transition: background 80ms;
+}
+.table__row:hover { background: var(--color-bg-surface-hover); }
+
+/* ── Body cells ────────────────────────────────────────────────────────── */
+.table__td {
+  padding: 10px 16px;
+  font-family: var(--font-sans);
+  color: var(--color-fg-secondary);
+  vertical-align: middle;
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+.table__row:last-child .table__td { border-bottom: none; }
+
+/* ── Cell variants ─────────────────────────────────────────────────────── */
+.table__td--name              { color: var(--color-fg); font-weight: 500; }
+.table__td--muted,
+.table__td--secondary         { color: var(--color-fg-muted); }
+.table__td--green             { color: var(--color-highlight); font-weight: 500; }
+.table__td--vendor            { color: var(--color-fg-tertiary); font-size: 12px; }
+.table__td--highlight         { color: var(--color-highlight); }
+
+/* ── Linked name cell ──────────────────────────────────────────────────── */
+.table__link {
+  color: var(--color-fg);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 120ms;
+}
+.table__link:hover { color: var(--color-link); text-decoration: underline; }
+
+/* ── Cell content helpers — Figma 3288-74236 ───────────────────────────── */
+
+/* Two-line text + subtext */
+.table__cell-primary {
+  color: var(--color-fg);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.table__cell-secondary {
+  color: var(--color-fg-tertiary);
+  font-size: 12px;
+  line-height: 1.3;
+  margin-top: 1px;
+}
+
+/* Trend pill */
+.table__trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 7px 2px 5px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.table__trend-icon {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.table__trend--up {
+  background: var(--color-success-bg);
+  color: var(--color-highlight);
+}
+
+.table__trend--down {
+  background: var(--color-critical-bg);
+  color: var(--color-critical-fg);
+}
+
+/* Progress bar */
+.table__progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.table__progress-bar {
+  min-width: 80px;
+  height: 4px;
+  background: var(--color-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.table__progress-fill {
+  height: 100%;
+  background: var(--color-highlight);
+  border-radius: 2px;
+  transition: width 300ms ease;
+}
+
+.table__progress-pct {
+  font-size: 12px;
+  color: var(--color-fg-secondary);
+  min-width: 30px;
+  text-align: right;
+}
+
+/* ── Issue tracker (C / H / M / L severity mini-cards) ─────────────────── */
+.issue-tracker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.issue-tracker__card {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  border-radius: 4px;
+  padding-left: 2px;
+  overflow: hidden;
+}
+
+/* Zero / disabled */
+.issue-tracker__card--zero {
+  background: rgba(255, 255, 255, 0.06);
+}
+.issue-tracker__card--zero .issue-tracker__count {
+  color: rgba(255, 255, 255, 0.24);
+}
+.issue-tracker__card--zero .issue-tracker__label {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.24);
+}
+
+/* Critical */
+.issue-tracker__card--critical { background: var(--color-critical-bg); }
+.issue-tracker__card--critical .issue-tracker__count { color: var(--color-critical-fg); }
+.issue-tracker__card--critical .issue-tracker__label { background: #9f0712; color: #ffe2e2; }
+
+/* High */
+.issue-tracker__card--high { background: var(--color-high-bg); }
+.issue-tracker__card--high .issue-tracker__count { color: var(--color-high-fg); }
+.issue-tracker__card--high .issue-tracker__label { background: #9f2d00; color: #ffedd4; }
+
+/* Medium */
+.issue-tracker__card--medium { background: var(--color-medium-bg); }
+.issue-tracker__card--medium .issue-tracker__count { color: var(--color-medium-fg); }
+.issue-tracker__card--medium .issue-tracker__label { background: #894b00; color: #fef9c2; }
+
+/* Low */
+.issue-tracker__card--low { background: var(--color-low-bg); }
+.issue-tracker__card--low .issue-tracker__count { color: var(--color-low-fg); }
+.issue-tracker__card--low .issue-tracker__label { background: #27272a; color: var(--color-fg); }
+
+.issue-tracker__count {
+  font-size: 12px;
+  width: 23px;
+  text-align: center;
+  letter-spacing: 0.3px;
+  font-family: var(--font-sans);
+}
+
+.issue-tracker__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  flex-shrink: 0;
+}
+
+/* ── Row action button (⋯) ─────────────────────────────────────────────── */
+.table__more-btn {
+  background: none;
+  border: none;
+  color: var(--color-fg-muted);
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.table__more-btn:hover { background: var(--color-bg-surface); color: var(--color-fg); }
+
+/* ── Table pagination — Figma 3288-74406 ───────────────────────────────── */
+.table-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 8px 16px;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.table-pagination__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 6px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-family: var(--font-sans);
+  color: var(--color-fg-secondary);
+  cursor: pointer;
+  transition: background 80ms, color 80ms, border-color 80ms;
+}
+
+.table-pagination__btn:hover:not(:disabled) {
+  background: var(--color-bg-surface);
+  border-color: var(--color-border-secondary);
+  color: var(--color-fg);
+}
+
+.table-pagination__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.table-pagination__btn--active {
+  background: var(--color-highlight);
+  border-color: var(--color-highlight);
+  color: #1a0a2e;
+  font-weight: 500;
+}
+
+.table-pagination__btn--active:hover:not(:disabled) {
+  background: var(--color-highlight);
+  border-color: var(--color-highlight);
+  color: #1a0a2e;
+}
+
+.table-pagination__btn--icon {
+  padding: 0;
+  width: 28px;
+}
+
+.table-pagination__perpage {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 8px;
+}
+
+.table-pagination__perpage-label {
+  font-size: 12px;
+  font-family: var(--font-sans);
+  color: var(--color-fg-tertiary);
+  white-space: nowrap;
+}
+
+.table-pagination__perpage-select {
+  height: 28px;
+  padding: 0 8px;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-family: var(--font-sans);
+  color: var(--color-fg);
+  cursor: pointer;
+  outline: none;
+}
+
+.table-pagination__perpage-select:focus {
+  border-color: var(--color-fg-secondary);
+}

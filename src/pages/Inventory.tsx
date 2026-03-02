@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { StatCards } from '../components/StatCards';
+import '../components/Table.css';
 import { Tabs } from '../components/Tabs';
 import { repositories } from '../data/mockData';
 import './Inventory.css';

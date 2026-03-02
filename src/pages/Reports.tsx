@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../components/Table.css';
 import { useNavigate } from 'react-router-dom';
 import { savedReports } from '../data/mockData';
 import './Reports.css';

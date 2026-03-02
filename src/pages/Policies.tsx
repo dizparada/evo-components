@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Badge, severityVariant } from '../components/Badge';
 import { StatCards } from '../components/StatCards';
+import '../components/Table.css';
 import { Tabs } from '../components/Tabs';
 import { policies, policyIssues } from '../data/mockData';
 import './Policies.css';

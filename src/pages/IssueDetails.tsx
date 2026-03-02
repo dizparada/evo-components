@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { Badge, severityVariant } from '../components/Badge';
+import '../components/Table.css';
 import { issueDetails } from '../data/mockData';
 import './IssueDetails.css';
 

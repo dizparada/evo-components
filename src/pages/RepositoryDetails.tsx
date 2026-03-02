@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Badge, IssueBadges } from '../components/Badge';
+import '../components/Table.css';
 import { Tabs } from '../components/Tabs';
 import { assets, repositories } from '../data/mockData';
 import './RepositoryDetails.css';

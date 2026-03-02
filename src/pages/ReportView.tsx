@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Badge, severityVariant } from '../components/Badge';
+import '../components/Table.css';
 import { reportRows, savedReports } from '../data/mockData';
 import './ReportView.css';
 
