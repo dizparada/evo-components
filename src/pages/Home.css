@@ -65,3 +65,9 @@
 .home__tables .table-wrap {
   flex: 1;
 }
+
+@container content (max-width: 1024px) {
+  .home__tables {
+    flex-direction: column;
+  }
+}

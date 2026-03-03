@@ -37,4 +37,6 @@
 .layout__content-inner {
   max-width: 1440px;
   margin: 0 auto;
+  container-type: inline-size;
+  container-name: content;
 }
