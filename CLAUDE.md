@@ -34,6 +34,7 @@ src/
 │   ├── Tabs.tsx / Tabs.css
 │   ├── Tooltip.tsx / Tooltip.css
 │   ├── ChatPanel.tsx / ChatPanel.css
+│   ├── DropdownMenu.tsx / DropdownMenu.css
 │   └── Nudge.tsx / Nudge.css
 ├── pages/             ← route-level pages (each has .tsx + .css)
 │   ├── Home.tsx / Home.css
@@ -222,12 +223,31 @@ import { IconButton } from '../components/IconButton';
 ```
 
 ### `<Tooltip content="..." placement="top|bottom|left|right">`
-Wraps any trigger element.
+Wraps any trigger element. Light (inverted) background — `var(--color-fg)` bg, `var(--color-bg)` text, directional arrow.
 ```tsx
 import { Tooltip } from '../components/Tooltip';
 <Tooltip content="MCP server policies can't be modified" placement="left">
   <button disabled>...</button>
 </Tooltip>
+```
+
+### `<DropdownMenu items={[...]} />`
+Each item: `{ label, icon?, active?, disabled?, onClick? }`
+```tsx
+import { DropdownMenu } from '../components/DropdownMenu';
+import type { MenuItem } from '../components/DropdownMenu';
+<DropdownMenu items={[
+  { label: 'Edit', onClick: handleEdit },
+  { label: 'Delete', onClick: handleDelete },
+]} />
+```
+
+### `<ChatPanel reportMode? />`
+AI chat sidebar. `reportMode` shows a "Create report" button in the header instead of icon buttons.
+```tsx
+import { ChatPanel } from '../components/ChatPanel';
+<ChatPanel />
+<ChatPanel reportMode />
 ```
 
 ### `<StatCards items={[...]} bordered? />`

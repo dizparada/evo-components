@@ -48,7 +48,9 @@ export function Layout() {
           </div>
         )}
         <div className="layout__content">
-          <Outlet />
+          <div className="layout__content-inner">
+            <Outlet />
+          </div>
         </div>
       </div>
       {!isReportsListing && <ChatPanel reportMode={isReportDetail} />}

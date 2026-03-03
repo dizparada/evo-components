@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import './Tooltip.css';
 
-// ── Tooltip — Figma ldezalbJY9Ml9bWU0eMqPz 1365-13336 ────────────────────────
+// ── Tooltip — Figma GKHSL8s3gPJsdvwuFdBc9K 3298-34453 ────────────────────────
 
 interface TooltipProps {
   content: string;

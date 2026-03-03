@@ -1,4 +1,4 @@
-/* ── Tooltip — Figma ldezalbJY9Ml9bWU0eMqPz 1365-13336 ──────────────────── */
+/* ── Tooltip — Figma GKHSL8s3gPJsdvwuFdBc9K 3298-34453 ──────────────────── */
 .tooltip-wrap {
   position: relative;
   display: inline-flex;
@@ -8,16 +8,16 @@
   position: absolute;
   z-index: 200;
   padding: 8px;
-  background: var(--color-bg-surface);
-  border: 1px solid var(--color-border-secondary);
+  background: var(--color-fg);
+  border: 1px solid var(--color-fg);
   border-radius: var(--radius-sm);
   font-size: 12px;
   font-family: var(--font-sans);
-  color: var(--color-fg);
+  color: var(--color-bg);
   letter-spacing: 0.3px;
   line-height: 16px;
   white-space: nowrap;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
   pointer-events: none;
   opacity: 0;
   transition: opacity 120ms;
@@ -29,25 +29,60 @@
 
 /* ── Placements ─────────────────────────────────────────────────────────── */
 .tooltip-wrap--top .tooltip {
-  bottom: calc(100% + 6px);
+  bottom: calc(100% + 7px);
   left: 50%;
   transform: translateX(-50%);
 }
 
 .tooltip-wrap--bottom .tooltip {
-  top: calc(100% + 6px);
+  top: calc(100% + 7px);
   left: 50%;
   transform: translateX(-50%);
 }
 
 .tooltip-wrap--left .tooltip {
-  right: calc(100% + 6px);
+  right: calc(100% + 7px);
   top: 50%;
   transform: translateY(-50%);
 }
 
 .tooltip-wrap--right .tooltip {
-  left: calc(100% + 6px);
+  left: calc(100% + 7px);
   top: 50%;
   transform: translateY(-50%);
+}
+
+/* ── Arrows ──────────────────────────────────────────────────────────────── */
+.tooltip::after {
+  content: '';
+  position: absolute;
+  border: 5px solid transparent;
+}
+
+.tooltip-wrap--top .tooltip::after {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top-color: var(--color-fg);
+}
+
+.tooltip-wrap--bottom .tooltip::after {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom-color: var(--color-fg);
+}
+
+.tooltip-wrap--left .tooltip::after {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left-color: var(--color-fg);
+}
+
+.tooltip-wrap--right .tooltip::after {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-right-color: var(--color-fg);
 }

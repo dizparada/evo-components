@@ -33,3 +33,8 @@
   overflow-y: auto;
   padding: 24px;
 }
+
+.layout__content-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+}

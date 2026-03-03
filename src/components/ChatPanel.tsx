@@ -100,4 +100,4 @@ function HistoryIcon() { return <svg width="14" height="14" viewBox="0 0 14 14" 
 function MoreIcon() { return <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><circle cx="2.5" cy="7" r="1.2"/><circle cx="7" cy="7" r="1.2"/><circle cx="11.5" cy="7" r="1.2"/></svg>; }
 function CollapseIcon() { return <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="1" y="1" width="12" height="12" rx="2"/></svg>; }
 function SparklesIcon() { return <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M7 1.5l1.2 3.1 3.3.3-2.5 2.2.8 3.2L7 8.7l-2.8 1.6.8-3.2L2.5 4.9l3.3-.3L7 1.5z"/></svg>; }
-function SendIcon() { return <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M1.5 7l11-5-5 11-1.5-4.5L1.5 7z"/></svg>; }
+function SendIcon() { return <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>; }
