@@ -26,7 +26,20 @@
 .layout__crumb-text {
   font-size: 13px;
   color: var(--color-fg-tertiary);
+  flex: 1;
 }
+
+.layout__chat-toggle {
+  background: none;
+  border: none;
+  color: var(--color-fg-tertiary);
+  padding: 2px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.layout__chat-toggle:hover { background: var(--color-bg-surface-hover); color: var(--color-fg); }
 
 .layout__content {
   flex: 1;

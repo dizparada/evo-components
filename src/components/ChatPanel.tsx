@@ -13,7 +13,7 @@ const REPORT_CONVO: Message[] = [
   },
 ];
 
-export function ChatPanel({ reportMode = false }: { reportMode?: boolean }) {
+export function ChatPanel({ reportMode = false, onClose }: { reportMode?: boolean; onClose?: () => void }) {
   const [messages, setMessages] = useState<Message[]>(reportMode ? REPORT_CONVO : []);
   const [input, setInput] = useState('');
 
@@ -39,7 +39,7 @@ export function ChatPanel({ reportMode = false }: { reportMode?: boolean }) {
               <button className="chat-panel__icon-btn"><PlusIcon /></button>
               <button className="chat-panel__icon-btn"><HistoryIcon /></button>
               <button className="chat-panel__icon-btn"><MoreIcon /></button>
-              <button className="chat-panel__icon-btn"><CollapseIcon /></button>
+              <button className="chat-panel__icon-btn" onClick={onClose} aria-label="Close chat"><CollapseIcon /></button>
             </>
           )}
         </div>

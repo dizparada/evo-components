@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Sidebar } from './Sidebar';
 import { ChatPanel } from './ChatPanel';
@@ -33,10 +34,11 @@ function getBreadcrumb(pathname: string) {
 export function Layout() {
   const location = useLocation();
   const crumb = getBreadcrumb(location.pathname);
+  const [chatOpen, setChatOpen] = useState(true);
 
-  // Reports listing pages: hide chat panel, show floating Ask Evo button
   const isReportsListing = location.pathname === '/reports';
   const isReportDetail = location.pathname.startsWith('/reports/');
+  const showChat = !isReportsListing;
 
   return (
     <div className="layout">
@@ -45,6 +47,11 @@ export function Layout() {
         {crumb && (
           <div className="layout__breadcrumb">
             <span className="layout__crumb-text">{crumb}</span>
+            {showChat && !chatOpen && (
+              <button className="layout__chat-toggle" onClick={() => setChatOpen(true)} aria-label="Open chat">
+                <SidepanelIcon />
+              </button>
+            )}
           </div>
         )}
         <div className="layout__content">
@@ -53,7 +60,19 @@ export function Layout() {
           </div>
         </div>
       </div>
-      {!isReportsListing && <ChatPanel reportMode={isReportDetail} />}
+      {showChat && chatOpen && (
+        <ChatPanel reportMode={isReportDetail} onClose={() => setChatOpen(false)} />
+      )}
     </div>
+  );
+}
+
+function SidepanelIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <rect x="1.5" y="2.5" width="13" height="11" rx="2" stroke="currentColor" strokeWidth="1.3" />
+      <rect x="9" y="3" width="5" height="10" rx="1.5" fill="currentColor" opacity="0.3" />
+      <line x1="9" y1="3" x2="9" y2="13" stroke="currentColor" strokeWidth="1.3" />
+    </svg>
   );
 }
