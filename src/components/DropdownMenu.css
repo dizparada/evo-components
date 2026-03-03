@@ -1,0 +1,66 @@
+/* ── DropdownMenu — Figma GKHSL8s3gPJsdvwuFdBc9K 3208-25789 ─────────────── */
+.dropdown-menu {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+  min-width: 120px;
+}
+
+/* ── MenuItem ────────────────────────────────────────────────────────────── */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-family: var(--font-sans);
+  color: var(--color-fg);
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  transition: background 80ms;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.menu-item:hover:not(.menu-item--disabled) {
+  background: var(--color-bg-surface-hover);
+}
+
+.menu-item--active {
+  background: var(--color-fg);
+  color: var(--color-bg-surface);
+}
+
+.menu-item--active:hover {
+  background: var(--color-fg-secondary);
+}
+
+.menu-item--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.menu-item__icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.menu-item__label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
