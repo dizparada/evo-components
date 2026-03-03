@@ -1,0 +1,95 @@
+/* ── Button — Figma GKHSL8s3gPJsdvwuFdBc9K 1614-1550 ────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 100ms, border-color 100ms, color 100ms;
+  line-height: 1;
+}
+
+.btn:disabled { cursor: not-allowed; }
+
+/* ── Sizes ──────────────────────────────────────────────────────────────── */
+.btn--md { height: 32px; padding: 0 12px; font-size: 13px; }
+.btn--sm { height: 24px; padding: 0 8px;  font-size: 13px; }
+.btn--xs { height: 20px; padding: 0 6px;  font-size: 12px; }
+
+/* ── Primary — white/light bg, dark text ───────────────────────────────── */
+.btn--primary {
+  background: var(--color-fg);
+  border-color: var(--color-fg);
+  color: var(--color-bg);
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+}
+.btn--primary:hover:not(:disabled) {
+  background: var(--color-fg-tertiary);
+  border-color: var(--color-fg-tertiary);
+}
+.btn--primary:active:not(:disabled) {
+  background: var(--color-fg-secondary);
+  border-color: var(--color-fg-secondary);
+}
+.btn--primary:disabled {
+  background: var(--color-bg);
+  border-color: transparent;
+  color: rgba(255,255,255,0.24);
+  box-shadow: none;
+}
+
+/* ── Secondary — dark surface, border, light text ──────────────────────── */
+.btn--secondary {
+  background: var(--color-bg-surface);
+  border-color: var(--color-border);
+  color: var(--color-fg);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+}
+.btn--secondary:hover:not(:disabled) {
+  background: var(--color-fg-tertiary);
+  border-color: var(--color-fg-tertiary);
+  color: var(--color-bg);
+}
+.btn--secondary:active:not(:disabled) {
+  background: var(--color-fg-secondary);
+  border-color: var(--color-border-secondary);
+  color: var(--color-bg);
+}
+.btn--secondary:disabled {
+  background: var(--color-bg);
+  border-color: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.24);
+  box-shadow: none;
+}
+
+/* ── Tertiary — no bg, text only ───────────────────────────────────────── */
+.btn--tertiary {
+  background: transparent;
+  border-color: transparent;
+  color: var(--color-fg-secondary);
+}
+.btn--tertiary:hover:not(:disabled) {
+  background: var(--color-bg-surface);
+  color: var(--color-fg);
+}
+.btn--tertiary:active:not(:disabled) {
+  background: var(--color-bg-surface-hover);
+}
+.btn--tertiary:disabled {
+  color: rgba(255,255,255,0.24);
+}
+
+/* ── Icon slot ──────────────────────────────────────────────────────────── */
+.btn__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  line-height: 0;
+}

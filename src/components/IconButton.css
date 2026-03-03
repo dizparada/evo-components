@@ -1,0 +1,80 @@
+/* ── IconButton — Figma GKHSL8s3gPJsdvwuFdBc9K 1614-1557 ────────────────── */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 100ms, border-color 100ms;
+  line-height: 0;
+}
+
+.icon-btn:disabled { cursor: not-allowed; }
+
+/* ── Sizes ──────────────────────────────────────────────────────────────── */
+.icon-btn--md { width: 32px; height: 32px; padding: 8px; }
+.icon-btn--sm { width: 24px; height: 24px; padding: 4px; }
+.icon-btn--xs { width: 20px; height: 20px; padding: 2px; }
+
+/* ── Primary — white/light bg ───────────────────────────────────────────── */
+.icon-btn--primary {
+  background: var(--color-fg);
+  border-color: var(--color-fg);
+  color: var(--color-bg);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+}
+.icon-btn--primary:hover:not(:disabled) {
+  background: var(--color-fg-tertiary);
+  border-color: var(--color-fg-tertiary);
+}
+.icon-btn--primary:active:not(:disabled) {
+  background: var(--color-fg-secondary);
+}
+.icon-btn--primary:disabled {
+  background: var(--color-bg);
+  border-color: transparent;
+  color: rgba(255,255,255,0.24);
+  box-shadow: none;
+}
+
+/* ── Secondary — dark surface, border ──────────────────────────────────── */
+.icon-btn--secondary {
+  background: var(--color-bg-surface);
+  border-color: var(--color-border);
+  color: var(--color-fg);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+}
+.icon-btn--secondary:hover:not(:disabled) {
+  background: var(--color-fg-tertiary);
+  border-color: var(--color-fg-tertiary);
+  color: var(--color-bg);
+}
+.icon-btn--secondary:active:not(:disabled) {
+  background: var(--color-fg-secondary);
+  color: var(--color-bg);
+}
+.icon-btn--secondary:disabled {
+  background: var(--color-bg);
+  border-color: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.24);
+  box-shadow: none;
+}
+
+/* ── Ghost — no bg, icon only ───────────────────────────────────────────── */
+.icon-btn--ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--color-fg-tertiary);
+}
+.icon-btn--ghost:hover:not(:disabled) {
+  background: var(--color-bg-surface);
+  color: var(--color-fg);
+}
+.icon-btn--ghost:active:not(:disabled) {
+  background: var(--color-bg-surface-hover);
+}
+.icon-btn--ghost:disabled {
+  color: rgba(255,255,255,0.24);
+}

@@ -4,6 +4,7 @@ import { Badge, severityVariant } from '../components/Badge';
 import { StatCards } from '../components/StatCards';
 import '../components/Table.css';
 import { Tabs } from '../components/Tabs';
+import { Button } from '../components/Button';
 import { Tooltip } from '../components/Tooltip';
 import { policies, policyIssues } from '../data/mockData';
 import './Policies.css';
@@ -40,7 +41,7 @@ export function Policies() {
       <div className="policies__tabs-row">
         <Tabs variant="line" tabs={[{ value: 'policies', label: 'Policies', badge: policies.length }, { value: 'issues', label: 'Issues', badge: policyIssues.length }]} value={activeTab} onChange={v => setActiveTab(v as 'policies' | 'issues')} />
         {activeTab === 'policies' && (
-          <button className="policies__create-btn" onClick={() => navigate('/policies/create')}>Create policy</button>
+          <Button label="Create policy" variant="secondary" size="sm" onClick={() => navigate('/policies/create')} />
         )}
       </div>
 

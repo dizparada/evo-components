@@ -1,5 +1,6 @@
 import { useState, type KeyboardEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '../components/Button';
 import './CreatePolicy.css';
 
 const SEVERITY_OPTIONS = ['Critical', 'High', 'Medium', 'Low'] as const;
@@ -174,12 +175,8 @@ export function CreatePolicy() {
         </div>
 
         <div className="create-policy__actions">
-          <button type="button" className="create-policy__btn create-policy__btn--secondary" onClick={() => navigate('/policies')}>
-            Cancel
-          </button>
-          <button type="submit" className="create-policy__btn create-policy__btn--primary">
-            Save
-          </button>
+          <Button label="Cancel" variant="secondary" size="md" onClick={() => navigate('/policies')} />
+          <Button label="Save" variant="primary" size="md" type="submit" />
         </div>
 
       </form>
