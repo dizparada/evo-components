@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Nudge } from './Nudge';
+import { useChatContext } from '../context/ChatContext';
 import './ChatPanel.css';
 
 interface Message { role: 'user' | 'bot'; text: string; suggestions?: string[]; }
@@ -16,6 +18,8 @@ const REPORT_CONVO: Message[] = [
 export function ChatPanel({ reportMode = false, onClose }: { reportMode?: boolean; onClose?: () => void }) {
   const [messages, setMessages] = useState<Message[]>(reportMode ? REPORT_CONVO : []);
   const [input, setInput] = useState('');
+  const navigate = useNavigate();
+  const { suggestions, clearSuggestions } = useChatContext();
 
   function send() {
     if (!input.trim()) return;
@@ -48,13 +52,30 @@ export function ChatPanel({ reportMode = false, onClose }: { reportMode?: boolea
       <div className="chat-panel__body">
         {messages.length === 0 ? (
           <div className="chat-panel__welcome">
-            <p className="chat-panel__welcome-text">
-              Hello. I'm your EVO AI assistant. I can help you with AI governance, security analysis, policy compliance and more. What would you like to know?
-            </p>
-            <div className="chat-panel__nudges">
-              <Nudge label="Help me analyze my scans" onClick={() => setInput('Help me analyze my scans')} />
-              <Nudge label="Scan all my repos" onClick={() => setInput('Scan all my repos')} />
-            </div>
+            {suggestions.length > 0 ? (
+              <>
+                <p className="chat-panel__welcome-text">
+                  What kind of report would you like to generate?
+                </p>
+                <div className="chat-panel__nudges">
+                  {suggestions.map((s, i) => (
+                    <button key={i} className="chat-panel__suggestion" onClick={() => { clearSuggestions(); navigate('/reports/new'); }}>
+                      <SparklesIcon /> {s}
+                    </button>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <>
+                <p className="chat-panel__welcome-text">
+                  Hello. I'm your EVO AI assistant. I can help you with AI governance, security analysis, policy compliance and more. What would you like to know?
+                </p>
+                <div className="chat-panel__nudges">
+                  <Nudge label="Help me analyze my scans" onClick={() => setInput('Help me analyze my scans')} />
+                  <Nudge label="Scan all my repos" onClick={() => setInput('Scan all my repos')} />
+                </div>
+              </>
+            )}
           </div>
         ) : (
           <div className="chat-panel__messages">

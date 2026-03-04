@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
+import { ChatProvider } from './context/ChatContext';
 import { Home } from './pages/Home';
 import { Inventory } from './pages/Inventory';
 import { RepositoryDetails } from './pages/RepositoryDetails';
@@ -23,6 +24,7 @@ function PlaceholderPage({ title }: { title: string }) {
 export default function App() {
   return (
     <BrowserRouter>
+      <ChatProvider>
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
@@ -40,6 +42,7 @@ export default function App() {
           <Route path="endpoint" element={<PlaceholderPage title="Endpoint" />} />
         </Route>
       </Routes>
+      </ChatProvider>
     </BrowserRouter>
   );
 }

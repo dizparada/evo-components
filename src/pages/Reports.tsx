@@ -2,10 +2,18 @@ import { useState } from 'react';
 import '../components/Table.css';
 import { useNavigate } from 'react-router-dom';
 import { savedReports } from '../data/mockData';
+import { useChatContext } from '../context/ChatContext';
 import './Reports.css';
+
+const REPORT_SUGGESTIONS = [
+  'New issues in the last 12 days by severity',
+  'Top critical assets by count',
+  'Show AI assets with policy violations',
+];
 
 export function Reports() {
   const navigate = useNavigate();
+  const { openChat } = useChatContext();
   const [search, setSearch] = useState('');
   const [view, setView] = useState<'all' | 'mine'>('all');
   const [toast] = useState('');
@@ -16,7 +24,7 @@ export function Reports() {
   );
 
   if (savedReports.length === 0) {
-    return <EmptyState onPrompt={() => navigate('/reports/new')} />;
+    return <EmptyState onPrompt={() => openChat(REPORT_SUGGESTIONS)} />;
   }
 
   return (
@@ -25,7 +33,7 @@ export function Reports() {
 
       <div className="reports__header">
         <h1 className="reports__title">Reports</h1>
-        <button className="reports__generate-btn" onClick={() => navigate('/reports/new')}>
+        <button className="reports__generate-btn" onClick={() => openChat(REPORT_SUGGESTIONS)}>
           <SparklesIcon /> Generate Report with Evo
         </button>
       </div>
@@ -76,7 +84,7 @@ export function Reports() {
       </div>
 
       {/* Floating Ask Evo button */}
-      <button className="reports__ask-evo" onClick={() => navigate('/reports/new')}>
+      <button className="reports__ask-evo" onClick={() => openChat(REPORT_SUGGESTIONS)}>
         <SparklesIcon /> Ask Evo
       </button>
     </div>

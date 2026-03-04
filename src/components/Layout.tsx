@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Sidebar } from './Sidebar';
 import { ChatPanel } from './ChatPanel';
+import { useChatContext } from '../context/ChatContext';
 import './Layout.css';
 
 const breadcrumbMap: Record<string, string> = {
@@ -34,7 +34,7 @@ function getBreadcrumb(pathname: string) {
 export function Layout() {
   const location = useLocation();
   const crumb = getBreadcrumb(location.pathname);
-  const [chatOpen, setChatOpen] = useState(true);
+  const { chatOpen, openChat, closeChat } = useChatContext();
 
   const isReportDetail = location.pathname.startsWith('/reports/');
 
@@ -46,7 +46,7 @@ export function Layout() {
           <div className="layout__breadcrumb">
             <span className="layout__crumb-text">{crumb}</span>
             {!chatOpen && (
-              <button className="layout__chat-toggle" onClick={() => setChatOpen(true)} aria-label="Open chat">
+              <button className="layout__chat-toggle" onClick={() => openChat()} aria-label="Open chat">
                 <SidepanelIcon />
               </button>
             )}
@@ -59,7 +59,7 @@ export function Layout() {
         </div>
       </div>
       {chatOpen && (
-        <ChatPanel reportMode={isReportDetail} onClose={() => setChatOpen(false)} />
+        <ChatPanel reportMode={isReportDetail} onClose={closeChat} />
       )}
     </div>
   );

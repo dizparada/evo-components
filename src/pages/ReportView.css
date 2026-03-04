@@ -1,4 +1,4 @@
-.report-view { position: relative; padding-bottom: 72px; }
+.report-view { position: relative; }
 
 .report-view__header { margin-bottom: 16px; }
 
@@ -48,12 +48,10 @@
 
 /* Footer actions */
 .report-view__footer {
-  position: fixed; bottom: 0; left: 226px; right: 262px;
   display: flex; justify-content: flex-end; gap: 10px;
-  padding: 12px 24px;
-  background: var(--color-bg);
+  padding: 16px 0;
+  margin-top: 16px;
   border-top: 1px solid var(--color-border);
-  z-index: 10;
 }
 
 .report-view__cancel-btn {
