@@ -6,12 +6,12 @@
   padding: 4px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 6px;
   box-shadow: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
   min-width: 120px;
 }
 
-/* ── MenuItem ────────────────────────────────────────────────────────────── */
+/* ── MenuItem — Figma GKHSL8s3gPJsdvwuFdBc9K 3103-57802 ─────────────────── */
 .menu-item {
   display: flex;
   align-items: center;
@@ -20,21 +20,22 @@
   border-radius: var(--radius-sm);
   font-size: 14px;
   font-family: var(--font-sans);
-  color: var(--color-fg-tertiary);
+  color: var(--color-fg);
   letter-spacing: 0.3px;
   cursor: pointer;
   width: 100%;
   background: none;
   border: none;
   text-align: left;
-  transition: background 80ms;
+  transition: background 80ms, color 80ms;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .menu-item:hover:not(.menu-item--disabled) {
-  background: var(--color-bg-surface-hover);
+  background: var(--color-fg);
+  color: var(--color-bg-surface);
 }
 
 .menu-item--active {
@@ -44,6 +45,7 @@
 
 .menu-item--active:hover {
   background: var(--color-fg-secondary);
+  color: var(--color-bg-surface);
 }
 
 .menu-item--disabled {

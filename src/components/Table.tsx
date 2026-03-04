@@ -81,6 +81,8 @@ export function TablePagination({
   onPerPageChange,
   perPageOptions = [10, 25, 50],
 }: TablePaginationProps) {
+  if (totalPages <= 1) return null;
+
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
