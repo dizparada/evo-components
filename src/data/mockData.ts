@@ -69,7 +69,7 @@ export const assetDetails: Record<string, {
   },
 };
 
-export const policies = [
+export const policies: { id: string; name: string; severity: string; issues: number; status: string; createdBy: string }[] = [
   { id: 'block-deepseek', name: 'Block DeepSeek', severity: 'Critical', issues: 1, status: 'Active', createdBy: 'Edgar Doe' },
   { id: 'disallow-log4j', name: 'Disallow Library Log4j-v2.14', severity: 'High', issues: 1, status: 'Active', createdBy: 'Evo agent' },
   { id: 'disallow-urllib3', name: 'Disallow Library Urllib3-v1.26.4', severity: 'High', issues: 1, status: 'Active', createdBy: 'Evo agent' },
@@ -81,6 +81,17 @@ export const policies = [
   { id: 'disallow-dataset', name: 'Disallow Dataset Personal-Finance-V1', severity: 'Medium', issues: 0, status: 'Active', createdBy: 'Evo agent' },
   { id: 'disallow-mcp-local', name: 'Disallow MCP server UnverifiedLocalHost', severity: 'Medium', issues: 0, status: 'Active', createdBy: 'John doe' },
 ];
+
+export function addPolicy(policy: { name: string; severity: string; createdBy?: string }) {
+  policies.unshift({
+    id: `policy-${Date.now()}`,
+    name: policy.name,
+    severity: policy.severity,
+    issues: 0,
+    status: 'Active',
+    createdBy: policy.createdBy ?? 'Ana Parada',
+  });
+}
 
 export const policyIssues = [
   { id: 'pytorch-1131', assetName: 'PyTorch-1.13.1', repository: '<longer repository name>', policyName: 'Disallow Library PyTo...', severity: 'Critical', occurrences: 1 },
