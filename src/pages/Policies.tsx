@@ -6,6 +6,7 @@ import '../components/Table.css';
 import { Tabs } from '../components/Tabs';
 import { Button } from '../components/Button';
 import { Tooltip } from '../components/Tooltip';
+import { DropdownMenu } from '../components/DropdownMenu';
 import { policies, policyIssues } from '../data/mockData';
 import './Policies.css';
 
@@ -20,6 +21,7 @@ export function Policies() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<'policies' | 'issues'>('policies');
   const [search, setSearch] = useState('');
+  const [openDropdownId, setOpenDropdownId] = useState<string | null>(null);
 
   const filteredPolicies = policies.filter(p =>
     p.name.toLowerCase().includes(search.toLowerCase())
@@ -90,7 +92,26 @@ export function Policies() {
                       </button>
                     </Tooltip>
                   ) : (
-                    <button className="table__more-btn"><MoreIcon /></button>
+                    <div className="policies__more-wrap">
+                      {openDropdownId === policy.id && (
+                        <div className="policies__dropdown-overlay" onClick={() => setOpenDropdownId(null)} />
+                      )}
+                      <button
+                        className="table__more-btn"
+                        onClick={() => setOpenDropdownId(openDropdownId === policy.id ? null : policy.id)}
+                      >
+                        <MoreIcon />
+                      </button>
+                      {openDropdownId === policy.id && (
+                        <DropdownMenu
+                          className="policies__dropdown"
+                          items={[
+                            { label: 'Edit' },
+                            { label: 'Delete' },
+                          ]}
+                        />
+                      )}
+                    </div>
                   )}
                 </td>
               </tr>

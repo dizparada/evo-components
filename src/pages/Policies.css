@@ -12,6 +12,11 @@
   margin-bottom: 0;
 }
 
+.policies__tabs-row .tabs--line {
+  flex: 1;
+  border-bottom: none;
+}
+
 .policies__create-btn {
   background: var(--color-bg-surface);
   border: 1px solid var(--color-border);
@@ -30,5 +35,23 @@
   align-items: center;
   padding: 10px 0;
   margin-bottom: 0;
+}
+
+.policies__more-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.policies__dropdown-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+}
+
+.policies__dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  z-index: 100;
 }
 
