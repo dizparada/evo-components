@@ -36,9 +36,7 @@ export function Layout() {
   const crumb = getBreadcrumb(location.pathname);
   const [chatOpen, setChatOpen] = useState(true);
 
-  const isReportsListing = location.pathname === '/reports';
   const isReportDetail = location.pathname.startsWith('/reports/');
-  const showChat = !isReportsListing;
 
   return (
     <div className="layout">
@@ -47,7 +45,7 @@ export function Layout() {
         {crumb && (
           <div className="layout__breadcrumb">
             <span className="layout__crumb-text">{crumb}</span>
-            {showChat && !chatOpen && (
+            {!chatOpen && (
               <button className="layout__chat-toggle" onClick={() => setChatOpen(true)} aria-label="Open chat">
                 <SidepanelIcon />
               </button>
@@ -60,7 +58,7 @@ export function Layout() {
           </div>
         </div>
       </div>
-      {showChat && chatOpen && (
+      {chatOpen && (
         <ChatPanel reportMode={isReportDetail} onClose={() => setChatOpen(false)} />
       )}
     </div>
