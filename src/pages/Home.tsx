@@ -47,22 +47,14 @@ export function Home() {
         delta: s.delta,
       }))} />
 
-      <div className="home__divider" />
 
       {/* Issues KPI row */}
-      <div className="home__issues">
-        {issueSummary.map(i => (
-          <div key={i.label} className="home__issue-item">
-            <span className={`home__issue-count home__issue-count--${i.variant}`}>{i.count}</span>
-            <span className="home__issue-meta">
-              <span className={`home__issue-label home__issue-label--${i.variant}`}>{i.label} </span>
-              <span className="home__issue-delta">(+{i.delta})</span>
-            </span>
-          </div>
-        ))}
-      </div>
-
-      <div className="home__divider" />
+      <StatCards items={issueSummary.map(s => ({
+        label: s.label,
+        count: s.count,
+        delta: s.delta,
+        variant: s.variant as 'critical' | 'high' | 'medium' | 'low',
+      }))} />
 
       {/* Tables */}
       <div className="home__tables">
