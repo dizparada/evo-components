@@ -1,0 +1,100 @@
+/* ── Checkbox / Radio — Figma GKHSL8s3gPJsdvwuFdBc9K 1627-6510 ────────────── */
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox--disabled {
+  cursor: not-allowed;
+}
+
+/* Visually hidden but accessible and focusable */
+.checkbox__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ── Visual control ─────────────────────────────────────────────────────────── */
+
+.checkbox__control {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-secondary);
+  transition: background 100ms, border-color 100ms, box-shadow 100ms;
+}
+
+.checkbox__control--checkbox { border-radius: 6px; }
+.checkbox__control--radio    { border-radius: 10px; }
+
+/* Hover — unchecked */
+.checkbox:hover .checkbox__control:not(.checkbox__control--checked):not(.checkbox__control--disabled) {
+  background: var(--color-active-bg);
+}
+
+/* Focus — unchecked */
+.checkbox__input:focus-visible ~ .checkbox__control:not(.checkbox__control--checked) {
+  background: var(--color-active-bg);
+  box-shadow: 0 0 0 4px rgba(214, 211, 209, 0.16);
+}
+
+/* Checked */
+.checkbox__control--checked {
+  background: var(--color-fg);
+  border-color: transparent;
+  color: var(--color-bg-surface);
+}
+
+/* Focus — checked */
+.checkbox__input:focus-visible ~ .checkbox__control--checked {
+  box-shadow: 0 0 0 4px rgba(232, 222, 251, 0.24);
+}
+
+/* Disabled unchecked */
+.checkbox__control--disabled:not(.checkbox__control--checked) {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--color-border);
+}
+
+/* Disabled checked */
+.checkbox__control--disabled.checkbox__control--checked {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--color-border);
+  color: rgba(255, 255, 255, 0.24);
+}
+
+/* Radio dot */
+.checkbox__radio-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--color-bg-surface);
+}
+
+.checkbox__control--disabled .checkbox__radio-dot {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+/* Label */
+.checkbox__label {
+  font-size: 13px;
+  color: var(--color-fg);
+  letter-spacing: 0.3px;
+}
+
+.checkbox--disabled .checkbox__label {
+  color: rgba(255, 255, 255, 0.24);
+}

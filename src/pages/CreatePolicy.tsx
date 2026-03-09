@@ -1,6 +1,7 @@
 import { useState, type KeyboardEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/Button';
+import { Checkbox } from '../components/Checkbox';
 import { addPolicy } from '../data/mockData';
 import './CreatePolicy.css';
 
@@ -65,17 +66,15 @@ export function CreatePolicy() {
           <label className="create-policy__label">Permission</label>
           <div className="create-policy__radio-group">
             {PERMISSION_OPTIONS.map(opt => (
-              <label key={opt} className="create-policy__radio-label">
-                <input
-                  type="radio"
-                  className="create-policy__radio"
-                  name="permission"
-                  value={opt}
-                  checked={permission === opt}
-                  onChange={() => setPermission(opt)}
-                />
-                {opt}
-              </label>
+              <Checkbox
+                key={opt}
+                type="radio"
+                name="permission"
+                value={opt}
+                checked={permission === opt}
+                onChange={() => setPermission(opt)}
+                label={opt}
+              />
             ))}
           </div>
         </div>
