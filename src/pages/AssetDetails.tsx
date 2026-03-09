@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Badge, IssueBadges, severityVariant } from '../components/Badge';
+import { Badge, severityVariant } from '../components/Badge';
+import { SeverityCounters } from '../components/SeverityCounters';
 import '../components/Table.css';
 import { Tabs } from '../components/Tabs';
 import { assetDetails, assets } from '../data/mockData';
@@ -80,7 +81,7 @@ export function AssetDetails() {
           </div>
           <div className="asset-details__meta-item">
             <span className="asset-details__meta-label">Issues</span>
-            <IssueBadges {...displayDetail.issues} />
+            <SeverityCounters {...displayDetail.issues} />
           </div>
         </div>
 
@@ -295,7 +296,7 @@ function RelatedAssets({ repoId, currentId }: { repoId: string; currentId: strin
                 <Link to={`/inventory/${repoId}/${a.id}`} className="table__link">{a.name}</Link>
               </td>
               <td className="table__td"><Badge variant="type" label={a.type} /></td>
-              <td className="table__td"><IssueBadges {...a.issues} /></td>
+              <td className="table__td"><SeverityCounters {...a.issues} /></td>
             </tr>
           ))}
         </tbody>

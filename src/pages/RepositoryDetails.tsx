@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Badge, IssueBadges } from '../components/Badge';
+import { Badge } from '../components/Badge';
+import { SeverityCounters } from '../components/SeverityCounters';
 import '../components/Table.css';
 import { Tabs } from '../components/Tabs';
 import { assets, repositories } from '../data/mockData';
@@ -43,7 +44,7 @@ export function RepositoryDetails() {
           </div>
           <div className="repo-details__meta-item">
             <span className="repo-details__meta-label">Issues</span>
-            <IssueBadges
+            <SeverityCounters
               critical={repo.issues.critical}
               high={repo.issues.high}
               medium={repo.issues.medium}
@@ -77,7 +78,7 @@ export function RepositoryDetails() {
                   <Badge variant="type" label={asset.type} />
                 </td>
                 <td className="table__td">
-                  <IssueBadges {...asset.issues} />
+                  <SeverityCounters {...asset.issues} />
                 </td>
                 <td className="table__td table__td--vendor">{asset.vendor}</td>
               </tr>

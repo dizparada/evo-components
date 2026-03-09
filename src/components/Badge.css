@@ -12,49 +12,44 @@
   white-space: nowrap;
 }
 
-/* ── Severity badges (solid, padding 2px 6px) ──────────────────────────── */
-.badge--critical { background: var(--color-critical-bg); color: var(--color-critical-fg); padding: 2px 6px; }
-.badge--high     { background: var(--color-high-bg);     color: var(--color-high-fg);     padding: 2px 6px; }
-.badge--medium   { background: var(--color-medium-bg);   color: var(--color-medium-fg);   padding: 2px 6px; }
-.badge--low      { background: var(--color-low-bg);      color: var(--color-low-fg);      padding: 2px 6px; }
-.badge--unknown  { background: rgba(255,255,255,0.24);   color: var(--color-fg-secondary); padding: 2px 6px; }
+/* ── Severity badges (solid fill, 2px 6px padding) ─────────────────────── */
+.badge--critical { background: var(--color-critical-bg); color: var(--color-critical-fg); padding: 2px 6px; min-width: 20px; }
+.badge--high     { background: var(--color-high-bg);     color: var(--color-high-fg);     padding: 2px 6px; min-width: 20px; }
+.badge--medium   { background: var(--color-medium-bg);   color: var(--color-medium-fg);   padding: 2px 6px; min-width: 20px; }
+.badge--low      { background: var(--color-low-bg);      color: var(--color-fg-secondary); padding: 2px 6px; min-width: 20px; }
+.badge--unknown  { background: rgba(255,255,255,0.24);   color: var(--color-fg-secondary); padding: 2px 6px; min-width: 20px; }
+.badge--success  { background: var(--color-success-bg);  color: var(--color-success-fg);   padding: 2px 6px; min-width: 20px; }
 
-/* ── Non-severity badges (min-height 20px, padding via content) ────────── */
-/* Content area gives the 0 6px horizontal padding */
-.badge--neutral  {
+/* ── Non-severity badges — padding lives in .badge__content ─────────────── */
+.badge--neutral {
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   color: var(--color-fg-tertiary);
-  min-height: 20px;
 }
-.badge--default  {
+.badge--default {
   background: var(--color-highlight);
   border: 1px solid var(--color-highlight);
-  color: #27272a;
-  min-height: 20px;
+  color: var(--color-bg-surface);
 }
-.badge--gray     {
+.badge--gray {
   background: var(--color-active-bg);
   color: var(--color-fg);
-  min-height: 20px;
 }
 .badge--disabled {
   background: rgba(255,255,255,0.06);
   color: rgba(255,255,255,0.24);
-  min-height: 20px;
 }
 
 /* Aliases kept for backward compat */
-.badge--success  { background: var(--color-success-bg); color: var(--color-success-fg); padding: 2px 6px; }
-.badge--running  { background: var(--color-highlight); border: 1px solid var(--color-highlight); color: #27272a; min-height: 20px; }
-.badge--active   { background: var(--color-active-bg); color: var(--color-active-fg); padding: 2px 6px; }
-.badge--type     { background: var(--color-bg); border: 1px solid var(--color-border-secondary); color: var(--color-fg-secondary); min-height: 20px; }
+.badge--running { background: var(--color-highlight); border: 1px solid var(--color-highlight); color: var(--color-bg-surface); }
+.badge--active  { background: var(--color-active-bg);  color: var(--color-active-fg); }
+.badge--type    { background: var(--color-bg-badge);     border: 1px solid var(--color-border-secondary); color: var(--color-fg-secondary); }
+.badge--warning { background: var(--color-warning-bg);  border: 1px solid var(--color-warning-border);   color: var(--color-warning-fg); padding: 2px 6px; }
 
 /* sm size modifier */
 .badge--sm { font-size: 11px; }
 
-/* ── Badge content (text padded) ───────────────────────────────────────── */
-/* For non-severity badges (neutral/default/gray/disabled) that use icon slots */
+/* ── Badge content (always wraps text in non-severity variants) ──────────── */
 .badge__content {
   display: flex;
   align-items: center;
@@ -70,15 +65,25 @@
   display: flex;
   align-items: center;
   padding: 2px;
-  background: rgba(255,255,255,0.08);
   flex-shrink: 0;
   line-height: 0;
 }
 
-.badge__icon--leading { border-radius: 0; }
-.badge__icon--trailing { border-radius: 0; }
+/* Default/brand/running: icon container gets a subtle tint */
+.badge--default .badge__icon,
+.badge--running .badge__icon {
+  background: rgba(255,255,255,0.08);
+}
 
-/* ── Issue count badges (C/H/M/L) ───────────────────────────────────────── */
+/* Neutral/gray: icon is dimmed, no background tint */
+.badge--neutral .badge__icon,
+.badge--gray .badge__icon,
+.badge--type .badge__icon {
+  background: transparent;
+  opacity: 0.4;
+}
+
+/* ── Issue count badges (C/H/M/L) — Figma 3326-62902 ───────────────────── */
 .issue-badges {
   display: inline-flex;
   gap: 4px;
@@ -88,11 +93,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 22px;
-  padding: 1px 5px;
+  width: 20px;
+  height: 20px;
   border-radius: var(--radius-sm);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
+  line-height: 20px;
 }
 
 .issue-badge--critical { background: var(--color-critical-bg); color: var(--color-critical-fg); }

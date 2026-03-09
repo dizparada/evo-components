@@ -40,10 +40,16 @@
   --color-info-border: #74d4ff;
   --color-info-fg: #8ec5ff;
 
+  /* warning */
+  --color-warning-bg: #733e0a;
+  --color-warning-border: #ffdf20;
+  --color-warning-fg: #ffdf20;
+
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --radius-sm: 4px;
   --radius-md: 6px;
   --radius-lg: 8px;
+  --radius-xl: 12px;
 
   font-family: var(--font-sans);
   font-size: 14px;

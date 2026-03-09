@@ -1,12 +1,16 @@
 import type { ReactNode } from 'react';
 import './Badge.css';
 
-// ── Badge — Figma 2069-81627 ──────────────────────────────────────────────────
+// ── Badge — Figma GKHSL8s3gPJsdvwuFdBc9K 2069-81627 ──────────────────────────
 
 type BadgeVariant =
   | 'critical' | 'high' | 'medium' | 'low' | 'unknown'
   | 'neutral' | 'default' | 'gray' | 'disabled'
   | 'success' | 'running' | 'active' | 'type';
+
+const SEVERITY_VARIANTS = new Set<BadgeVariant>([
+  'critical', 'high', 'medium', 'low', 'unknown', 'success',
+]);
 
 interface BadgeProps {
   variant: BadgeVariant;
@@ -17,46 +21,24 @@ interface BadgeProps {
 }
 
 export function Badge({ variant, label, size = 'md', leadingIcon, trailingIcon }: BadgeProps) {
-  const hasSlots = leadingIcon || trailingIcon;
+  const cls = `badge badge--${variant}${size === 'sm' ? ' badge--sm' : ''}`;
 
-  if (hasSlots) {
-    return (
-      <span className={`badge badge--${variant}${size === 'sm' ? ' badge--sm' : ''}`}>
-        {leadingIcon && <span className="badge__icon badge__icon--leading">{leadingIcon}</span>}
-        <span className="badge__content">{label}</span>
-        {trailingIcon && <span className="badge__icon badge__icon--trailing">{trailingIcon}</span>}
-      </span>
-    );
+  // Severity badges: simple flat pill, padding handled by CSS
+  if (SEVERITY_VARIANTS.has(variant)) {
+    return <span className={cls}>{label}</span>;
   }
 
+  // Non-severity badges: always use content wrapper so text is padded even without icon slots
   return (
-    <span className={`badge badge--${variant}${size === 'sm' ? ' badge--sm' : ''}`}>
-      {label}
+    <span className={cls}>
+      {leadingIcon && <span className="badge__icon badge__icon--leading">{leadingIcon}</span>}
+      <span className="badge__content">{label}</span>
+      {trailingIcon && <span className="badge__icon badge__icon--trailing">{trailingIcon}</span>}
     </span>
   );
 }
 
-// ── IssueBadges ───────────────────────────────────────────────────────────────
-
-interface IssueBadgesProps {
-  critical: number;
-  high: number;
-  medium: number;
-  low: number;
-}
-
-export function IssueBadges({ critical, high, medium, low }: IssueBadgesProps) {
-  return (
-    <span className="issue-badges">
-      <span className={`issue-badge ${critical > 0 ? 'issue-badge--critical' : 'issue-badge--zero'}`}>C {critical}</span>
-      <span className={`issue-badge ${high > 0 ? 'issue-badge--high' : 'issue-badge--zero'}`}>H {high}</span>
-      <span className={`issue-badge ${medium > 0 ? 'issue-badge--medium' : 'issue-badge--zero'}`}>M {medium}</span>
-      <span className={`issue-badge ${low > 0 ? 'issue-badge--low' : 'issue-badge--zero'}`}>L {low}</span>
-    </span>
-  );
-}
-
-// ── AssetTypeCounter — Figma 3267-55356 ──────────────────────────────────────
+// ── AssetTypeCounter — Figma GKHSL8s3gPJsdvwuFdBc9K 3267-55356 ───────────────
 
 interface AssetTypeCounts {
   mcp: number;

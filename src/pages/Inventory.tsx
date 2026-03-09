@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { StatCards } from '../components/StatCards';
 import '../components/Table.css';
 import { Tabs } from '../components/Tabs';
+import { Tooltip } from '../components/Tooltip';
 import { repositories } from '../data/mockData';
 import './Inventory.css';
 
@@ -91,6 +92,14 @@ function StatIcon({ type }: { type: string }) {
 
 type ByType = { mcp: number; model: number; dataset: number; library: number; other: number };
 
+const ASSET_TYPE_LABELS: Record<keyof ByType, string> = {
+  mcp:     'MCP server',
+  model:   'Model',
+  dataset: 'Dataset',
+  library: 'Library',
+  other:   'Other',
+};
+
 function AssetsByType({ byType }: { byType: ByType }) {
   const types: { key: keyof ByType; icon: ReactNode }[] = [
     { key: 'mcp',     icon: <McpIcon /> },
@@ -102,10 +111,12 @@ function AssetsByType({ byType }: { byType: ByType }) {
   return (
     <div className="assets-by-type">
       {types.map(({ key, icon }) => (
-        <span key={key} className={`assets-by-type__card ${byType[key] === 0 ? 'assets-by-type__card--zero' : ''}`}>
-          <span className="assets-by-type__count">{byType[key]}</span>
-          <span className="assets-by-type__icon">{icon}</span>
-        </span>
+        <Tooltip key={key} content={ASSET_TYPE_LABELS[key]} placement="top">
+          <span className={`assets-by-type__card ${byType[key] === 0 ? 'assets-by-type__card--zero' : ''}`}>
+            <span className="assets-by-type__count">{byType[key]}</span>
+            <span className="assets-by-type__icon">{icon}</span>
+          </span>
+        </Tooltip>
       ))}
     </div>
   );

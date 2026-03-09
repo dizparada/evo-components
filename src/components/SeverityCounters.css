@@ -1,0 +1,56 @@
+/* ── SeverityCounters — Figma GKHSL8s3gPJsdvwuFdBc9K 3326-62858 ─────────── */
+.severity-counters {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── Single counter: badge + count ──────────────────────────────────────── */
+.severity-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+/* ── Severity letter badge (20×20) ──────────────────────────────────────── */
+.severity-counter__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.severity-counter__badge--critical { background: var(--color-critical-bg); color: var(--color-critical-fg); }
+.severity-counter__badge--high     { background: var(--color-high-bg);     color: var(--color-high-fg); }
+.severity-counter__badge--medium   { background: var(--color-medium-bg);   color: var(--color-medium-fg); }
+.severity-counter__badge--low      { background: var(--color-low-bg);      color: var(--color-low-fg); }
+
+/* Zero state: faded badge */
+.severity-counter__badge--zero {
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.24);
+}
+
+/* ── Count text ──────────────────────────────────────────────────────────── */
+.severity-counter__count {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: var(--font-sans);
+  line-height: 16px;
+  letter-spacing: 0.3px;
+  color: var(--color-fg);
+  width: 24px;
+}
+
+/* Zero state: faded count */
+.severity-counter__count--zero {
+  color: rgba(255,255,255,0.24);
+}
