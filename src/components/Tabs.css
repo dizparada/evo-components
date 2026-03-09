@@ -1,65 +1,54 @@
-/* ── Tabs — Figma GKHSL8s3gPJsdvwuFdBc9K 2072-81848 ──────────────────────── */
-
-/* ── Contained variant ────────────────────────────────────────────────────── */
+/* Contained variant — Figma GKHSL8s3gPJsdvwuFdBc9K 2072-81848 */
 .tabs--contained {
   display: inline-flex;
-  background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: 2px;
-  gap: 2px;
+  background: var(--color-bg-surface);
+  overflow: hidden;
 }
 
+/* Default */
 .tabs--contained .tabs__tab {
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: var(--radius-sm);
-  padding: 3px 8px;
-  height: 24px;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  padding: 4px 8px;
   font-size: 13px;
   font-family: var(--font-sans);
-  letter-spacing: 0.3px;
-  color: var(--color-fg-tertiary);
+  color: var(--color-fg);
   cursor: pointer;
   white-space: nowrap;
-  transition: background 100ms, border-color 100ms, color 100ms;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  transition: background 120ms, color 120ms;
 }
-
+/* Hover */
 .tabs--contained .tabs__tab:hover {
-  background: var(--color-fg-tertiary);
-  border-color: var(--color-fg-tertiary);
-  color: var(--color-bg);
+  background: var(--color-border);
+  color: var(--color-fg-secondary);
 }
-
+/* Active */
 .tabs--contained .tabs__tab--active {
-  background: var(--color-fg);
-  border-color: var(--color-fg);
-  color: var(--color-bg);
-  font-weight: 500;
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--color-bg-surface);
 }
-
 .tabs--contained .tabs__tab--active:hover {
-  background: var(--color-fg-tertiary);
-  border-color: var(--color-fg-tertiary);
-  color: var(--color-bg);
+  background: #ffffff;
+  color: var(--color-bg-surface);
 }
-
+/* Disabled */
 .tabs--contained .tabs__tab:disabled,
 .tabs--contained .tabs__tab--disabled {
   color: rgba(255, 255, 255, 0.24);
-  cursor: not-allowed;
+  cursor: default;
   pointer-events: none;
 }
 
-/* ── Line variant ─────────────────────────────────────────────────────────── */
+/* Line variant */
 .tabs--line {
   display: flex;
   border-bottom: 1px solid var(--color-border);
 }
 
+/* Default */
 .tabs--line .tabs__tab {
   background: none;
   border: none;
@@ -71,46 +60,36 @@
   font-size: 13px;
   font-weight: 500;
   font-family: var(--font-sans);
-  letter-spacing: 0.3px;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 6px;
   white-space: nowrap;
-  transition: color 100ms;
+  transition: color 120ms;
 }
-
-.tabs--line .tabs__tab:hover {
-  color: var(--color-fg-secondary);
-}
-
+/* Hover */
+.tabs--line .tabs__tab:hover { color: var(--color-fg-secondary); }
+/* Active */
 .tabs--line .tabs__tab--active {
   color: var(--color-fg);
   border-bottom-color: var(--color-brand);
 }
-
-.tabs--line .tabs__tab--active:hover {
-  color: var(--color-fg);
-}
-
+.tabs--line .tabs__tab--active:hover { color: var(--color-fg); }
+/* Disabled */
 .tabs--line .tabs__tab:disabled,
 .tabs--line .tabs__tab--disabled {
   color: rgba(255, 255, 255, 0.24);
-  cursor: not-allowed;
+  cursor: default;
   pointer-events: none;
 }
 
-/* ── Badge (count pill on line tabs) ─────────────────────────────────────── */
+/* Badge on line tabs */
 .tabs__badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  border-radius: 6px;
   padding: 1px 6px;
   font-size: 12px;
-  font-weight: 400;
   color: var(--color-fg-tertiary);
-  line-height: 16px;
+  font-weight: 400;
 }
