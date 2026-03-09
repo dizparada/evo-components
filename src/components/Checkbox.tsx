@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import type { ChangeEvent } from 'react';
+import type { ChangeEvent, ReactNode } from 'react';
 import { CheckIcon, MinusIcon } from '@heroicons/react/24/outline';
 import './Checkbox.css';
 
@@ -13,7 +13,7 @@ interface CheckboxProps {
   onChange?: (checked: boolean) => void;
   name?: string;
   value?: string;
-  label?: string;
+  label?: ReactNode;
 }
 
 export function Checkbox({

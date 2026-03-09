@@ -98,19 +98,19 @@ export function CreatePolicy() {
           <label className="create-policy__label">Severity</label>
           <div className="create-policy__severity-group">
             {SEVERITY_OPTIONS.map(s => (
-              <label key={s} className="create-policy__severity-label">
-                <input
-                  type="radio"
-                  className="create-policy__radio"
-                  name="severity"
-                  value={s}
-                  checked={severity === s}
-                  onChange={() => setSeverity(s)}
-                />
-                <span className={`create-policy__severity-badge create-policy__severity-badge--${s.toLowerCase()}`}>
-                  {s}
-                </span>
-              </label>
+              <Checkbox
+                key={s}
+                type="radio"
+                name="severity"
+                value={s}
+                checked={severity === s}
+                onChange={() => setSeverity(s)}
+                label={
+                  <span className={`create-policy__severity-badge create-policy__severity-badge--${s.toLowerCase()}`}>
+                    {s}
+                  </span>
+                }
+              />
             ))}
           </div>
         </div>

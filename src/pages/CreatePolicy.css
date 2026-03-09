@@ -92,34 +92,11 @@
   gap: 24px;
 }
 
-.create-policy__radio-label {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  color: var(--color-fg-secondary);
-  cursor: pointer;
-}
-
-.create-policy__radio {
-  accent-color: var(--color-brand);
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-}
-
 /* Severity */
 .create-policy__severity-group {
   display: flex;
   align-items: center;
   gap: 12px;
-}
-
-.create-policy__severity-label {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
 }
 
 .create-policy__severity-badge {
