@@ -23,7 +23,7 @@ export function ScansJobs() {
         <div className="scans-jobs__section-header">
           <div className="scans-jobs__section-title-row">
             <span className="scans-jobs__section-title">Active tests</span>
-            <Badge variant="running" label={String(active.length)} />
+            <Badge variant="neutral" label={String(active.length)} />
           </div>
           <div className="inventory__search-wrap">
             <SearchIcon />
@@ -89,7 +89,7 @@ export function ScansJobs() {
         <div className="scans-jobs__finished-header">
           <div className="scans-jobs__section-title-row">
             <span className="scans-jobs__finished-label">Finished jobs</span>
-            <Badge variant="running" label={String(finished.length)} />
+            <Badge variant="neutral" label={String(finished.length)} />
           </div>
           <div className="inventory__search-wrap">
             <SearchIcon />
