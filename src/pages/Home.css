@@ -4,58 +4,6 @@
   gap: 16px;
 }
 
-
-/* Divider */
-.home__divider {
-  height: 1px;
-  background: var(--color-border);
-}
-
-/* Issues row — no card backgrounds, plain text columns */
-.home__issues {
-  display: flex;
-  gap: 16px;
-}
-
-.home__issue-item {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.home__issue-count {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 28px;
-}
-
-.home__issue-count--critical { color: var(--color-critical-fg); }
-.home__issue-count--high     { color: var(--color-high-fg); }
-.home__issue-count--medium   { color: var(--color-medium-fg); }
-.home__issue-count--low      { color: var(--color-low-fg); }
-
-.home__issue-meta {
-  display: flex;
-  align-items: baseline;
-  gap: 4px;
-}
-
-.home__issue-label {
-  font-size: 13px;
-  font-weight: 400;
-}
-
-.home__issue-label--critical { color: var(--color-critical-fg); }
-.home__issue-label--high     { color: var(--color-high-fg); }
-.home__issue-label--medium   { color: var(--color-medium-fg); }
-.home__issue-label--low      { color: var(--color-low-fg); }
-
-.home__issue-delta {
-  font-size: 13px;
-  color: var(--color-link);
-}
-
 /* Tables side by side */
 .home__tables {
   display: flex;

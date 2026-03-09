@@ -111,14 +111,16 @@ export function ReportView() {
         </tbody>
       </table>
 
-      <div className="reports__pagination">
-        <button className="reports__page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}><ChevronLeftIcon /></button>
+      <div className="table-pagination">
+        <button className="table-pagination__btn table-pagination__btn--icon" disabled={page === 1} onClick={() => setPage(p => p - 1)}><ChevronLeftIcon /></button>
         {[1,2,3,4,5].map(n => (
-          <button key={n} className={`reports__page-btn ${n === page ? 'reports__page-btn--active' : ''}`} onClick={() => setPage(n)}>{n}</button>
+          <button key={n} className={`table-pagination__btn${n === page ? ' table-pagination__btn--active' : ''}`} onClick={() => setPage(n)}>{n}</button>
         ))}
-        <button className="reports__page-btn" onClick={() => setPage(p => p + 1)}><ChevronRightIcon /></button>
-        <span className="reports__per-page">Results per page</span>
-        <select className="reports__per-page-select"><option>10</option><option>25</option></select>
+        <button className="table-pagination__btn table-pagination__btn--icon" onClick={() => setPage(p => p + 1)}><ChevronRightIcon /></button>
+        <div className="table-pagination__perpage">
+          <span className="table-pagination__perpage-label">Results per page</span>
+          <select className="table-pagination__perpage-select"><option>10</option><option>25</option></select>
+        </div>
       </div>
 
       {!saved && (
